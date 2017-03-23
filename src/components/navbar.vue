@@ -27,15 +27,23 @@
 </template>
 
 <style scoped>
+.pure-menu-heading {
+  color: #edf6ff;
+}
+
+.pure-menu-link {
+  color: #edf6ff;
+}
 
 .custom-wrapper {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8ca6db+0,b993d6+100 */
+  /* #8ca6db, #b993d6 */
   background: rgb(140,166,219); /* Old browsers */
   background: -moz-linear-gradient(left,  rgba(140,166,219,1) 0%, rgba(185,147,214,1) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left,  rgba(140,166,219,1) 0%,rgba(185,147,214,1) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right,  rgba(140,166,219,1) 0%,rgba(185,147,214,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ca6db', endColorstr='#b993d6',GradientType=1 ); /* IE6-9 */
-  margin-bottom: 1em;
+  margin-bottom: 40px;
   -webkit-font-smoothing: antialiased;
   height: 80px;
   -webkit-transition: height 0.5s;
@@ -43,6 +51,7 @@
   -ms-transition: height 0.5s;
   transition: height 0.5s;
   overflow: hidden;
+  box-shadow: 0px 8px 8px rgba(164, 182, 216, 0.5);
 }
 
 .custom-wrapper.open {
