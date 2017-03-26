@@ -32,7 +32,7 @@
           <div>
             <h2>Description</h2>
             <div>
-              <textarea placeholder="Describe your project here..." rows="2" v-model="projectDescription"></textarea>
+              <textarea placeholder="Describe your project here..." rows="2" v-model="projectDescription" @keydown="adjustHeight" @keyup="adjustHeight" style="overflow-y: hidden;"></textarea>
             </div>
           </div>
           <div style="margin-bottom: 15px;">
@@ -80,11 +80,12 @@
 <script>
 
 export default {
-  name: 'hello',
+  name: 'home',
   data() {
     return {
       dependencyName: '',
       dependencyVersion: '',
+      standardMargin: -1,
     };
   },
   computed: {
@@ -133,6 +134,12 @@ export default {
     },
   },
   methods: {
+    adjustHeight: function test(event) {
+      const textarea = event.srcElement;
+      textarea.style.height = '1px';
+      const lineHeight = parseInt(window.getComputedStyle(textarea)['line-height'], 10);
+      textarea.style.height = `${lineHeight + textarea.scrollHeight}px`;
+    },
     addDependency: function addDependency() {
       const dependency = {
         name: this.dependencyName,
@@ -314,7 +321,6 @@ textarea:focus {
 }
 
 .menu-panel {
-  height: calc(100vh - 126px);
 }
 
 .readme-panel {
