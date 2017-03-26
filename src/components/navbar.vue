@@ -43,7 +43,6 @@
   background: -webkit-linear-gradient(left,  rgba(140,166,219,1) 0%,rgba(185,147,214,1) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right,  rgba(140,166,219,1) 0%,rgba(185,147,214,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ca6db', endColorstr='#b993d6',GradientType=1 ); /* IE6-9 */
-  margin-bottom: 40px;
   -webkit-font-smoothing: antialiased;
   height: 80px;
   -webkit-transition: height 0.5s;

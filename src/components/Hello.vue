@@ -1,58 +1,65 @@
 <template>
   <div class="pure-g">
-    <div class="pure-u-1 pure-u-md-1-5 panel menu-panel">
-      <!--<input type="text" name="repository-name" placeholder="Repository Name" />
-      <input type="text" name="repository-sponsors" placeholder="Sponsors" />
-      <textarea rows="4" cols="50" placeholder="Description"></textarea>
-      <input type="text" name="repository-dependency" placeholder="Dependency" />-->
+    <div class="pure-u-1 pure-u-md-1-5 panel menu-panel" style="margin-top: 40px;">
+      <div style="padding-left: 20px; padding-right: 20px;">
+        <button class="add-button">Create README.md</button>
+      </div>
+      <div>
+        <div class="menu-item"><span class="menu-item-icon">X</span>Editor</div>
+        <div class="menu-item menu-item--active">
+          <span class="menu-item-icon">X</span>Repositories<span class="menu-item-icon--right">▼</span>
+          <div class="menu-item-sublist">
+            <div><span class="submenu-item-icon">►</span>igeligel/vue-readme</div>
+            <div><span class="submenu-item-icon">►</span>vuejs/vue</div>
+          </div>
+        </div>
+        <div class="menu-item"><span class="menu-item-icon">X</span>Import</div>
+      </div>
     </div>
     <div class="pure-u-1 pure-u-md-3-5 panel readme-panel">
-      <!--  -->
     </div>
-    <div class="pure-u-1 pure-u-md-1-5 panel settings-panel">
+    <div class="pure-u-1 pure-u-md-1-5 panel settings-panel" style="margin-top: 40px;">
       <div style="padding-left: 15px; padding-right: 15px;">
         <div class="configuration-panel" style="background-color: white;">
           <h2>Project Title</h2>
           <div>
-            <input class="input__project-title" spellcheck="false" placeholder="Project Title">
+            <input class="input__project-title" spellcheck="false" placeholder="Project Title" v-model="projectTitle">
           </div>
           <h2>Username</h2>
           <div>
-            <input class="input__project-title" spellcheck="false" placeholder="Username">
+            <input class="input__project-title" spellcheck="false" placeholder="Username" v-model="username">
           </div>
           <div>
             <h2>Description</h2>
             <div>
-              <textarea placeholder="Describe your project here..." rows="2"></textarea>
+              <textarea placeholder="Describe your project here..." rows="2" v-model="projectDescription"></textarea>
             </div>
           </div>
           <div style="margin-bottom: 15px;">
             <h2>Dependencies</h2>
             <div class="dependency-shields-container">
-              <img src="https://img.shields.io/badge/Newtonsoft-10.0.0-green.svg"></img>
-              <img src="https://img.shields.io/badge/Newtonsoft-10.0.0-green.svg"></img>
-              <img src="https://img.shields.io/badge/Newtonsoft-10.0.0-green.svg"></img>
-              <img src="https://img.shields.io/badge/Newtonsoft-10.0.0-green.svg"></img>
-              <img src="https://img.shields.io/badge/Newtonsoft-10.0.0-green.svg"></img>
+              <template v-for="dependency in dependencies">
+                <img :src="`https://img.shields.io/badge/${dependency.name}-${dependency.version}-green.svg`"></img>
+              </template>
             </div>
             <div style="margin-bottom: 5px;">
-              <input class="dependency-name" spellcheck="false" placeholder="Name" />
-              <input class="dependency-version" spellcheck="false" placeholder="Version" />
+              <input class="dependency-name" spellcheck="false" placeholder="Name" v-model="dependencyName" />
+              <input class="dependency-version" spellcheck="false" placeholder="Version" v-model="dependencyVersion" />
             </div>
             <div>
-              <button class="add-button">+ Add Dependency</button>
+              <button class="add-button" v-on:click="addDependency()">+ Add Dependency</button>
             </div>
           </div>
           <div>
             <h2>Installation</h2>
             <div>
-              <textarea placeholder="Describe your project here..." rows="2"></textarea>
+              <textarea placeholder="Provide Installation instructions" rows="2" v-model="projectInstallation"></textarea>
             </div>
           </div>
           <div>
             <h2>How To Use</h2>
             <div>
-              <textarea placeholder="Describe your project here..." rows="2"></textarea>
+              <textarea placeholder="Describe your project here..." rows="2" v-model="projectHowToUse"></textarea>
             </div>
           </div>
           <div>
@@ -71,12 +78,106 @@
 </template>
 
 <script>
+
 export default {
   name: 'hello',
+  data() {
+    return {
+      dependencyName: '',
+      dependencyVersion: '',
+    };
+  },
+  computed: {
+    dependencies: function computedDependencies() {
+      return this.$store.state.dependencies;
+    },
+    projectTitle: {
+      get() {
+        return this.$store.state.projectTitle;
+      },
+      set(value) {
+        this.$store.commit('UPDATE_PROJECT_TITLE', value);
+      },
+    },
+    username: {
+      get() {
+        return this.$store.state.username;
+      },
+      set(value) {
+        this.$store.commit('UPDATE_USERNAME', value);
+      },
+    },
+    projectDescription: {
+      get() {
+        return this.$store.state.projectDescription;
+      },
+      set(value) {
+        this.$store.commit('UPDATE_PROJECT_DESCRIPTION', value);
+      },
+    },
+    projectInstallation: {
+      get() {
+        return this.$store.state.projectInstallation;
+      },
+      set(value) {
+        this.$store.commit('UPDATE_INSTALLATION', value);
+      },
+    },
+    projectHowToUse: {
+      get() {
+        return this.$store.state.projectHowToUse;
+      },
+      set(value) {
+        this.$store.commit('UPDATE_HOW_TO_USE', value);
+      },
+    },
+  },
+  methods: {
+    addDependency: function addDependency() {
+      const dependency = {
+        name: this.dependencyName,
+        version: this.dependencyVersion,
+      };
+      this.$store.commit({
+        type: 'ADD_DEPENDENCY',
+        dependency,
+      });
+    },
+  },
 };
 </script>
 
 <style scoped>
+.submenu-item-icon {
+  margin-left: 45px;
+  margin-right: 15px;
+}
+
+.menu-item-icon--right {
+  float:right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.menu-item {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: left;
+  line-height: 3em;
+  color: #8477b7;
+}
+
+.menu-item-icon {
+  margin-left: 25px;
+  margin-right: 15px;
+}
+
+.menu-item--active {
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 20px rgba(113, 158, 206, 0.1);
+}
+
 select {
   width: 100%;
   height: 2.5em;
@@ -218,6 +319,10 @@ textarea:focus {
 
 .readme-panel {
   height: calc(100vh - 126px);
+  background-color: #fcf8ff;
+  margin-top: 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(113, 158, 206, 0.1);
 }
 
 .settings-panel {
