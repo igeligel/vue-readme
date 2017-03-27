@@ -17,30 +17,42 @@
       </div>
     </div>
     <div class="pure-u-1 pure-u-md-3-5 panel readme-panel">
+      <readme-preview>
+      </readme-preview>
     </div>
     <div class="pure-u-1 pure-u-md-1-5 panel settings-panel" style="margin-top: 40px;">
       <div style="padding-left: 15px; padding-right: 15px;">
-        <div class="configuration-panel" style="background-color: white;">
-          <h2>Project Title</h2>
-          <div>
-            <input class="input__project-title" spellcheck="false" placeholder="Project Title" v-model="projectTitle">
-          </div>
-          <h2>Username</h2>
-          <div>
-            <input class="input__project-title" spellcheck="false" placeholder="Username" v-model="username">
-          </div>
-          <div>
-            <h2>Description</h2>
-            <div>
-              <textarea placeholder="Describe your project here..." rows="2" v-model="projectDescription" @keydown="adjustHeight" @keyup="adjustHeight" style="overflow-y: hidden;"></textarea>
-            </div>
-          </div>
+        <div class="configuration-panel">
+          <configurator-input
+            :title="'Project Title'"
+            :placeholder="'Project Title'"
+            :storeProperty="'projectTitle'"
+            :storeCommitEvent="'UPDATE_PROJECT_TITLE'">
+          </configurator-input>
+          <configurator-input
+            :title="'Username'"
+            :placeholder="'Username'"
+            :storeProperty="'username'"
+            :storeCommitEvent="'UPDATE_USERNAME'">
+          </configurator-input>
+          <configurator-textarea
+            :title="'Description'"
+            :placeholder="'Describe your project'"
+            :rows="2"
+            :storeProperty="'projectDescription'"
+            :storeCommitEvent="'UPDATE_PROJECT_DESCRIPTION'">
+          </configurator-textarea>
           <div style="margin-bottom: 15px;">
             <h2>Dependencies</h2>
             <div class="dependency-shields-container">
               <template v-for="dependency in dependencies">
-                <img :src="`https://img.shields.io/badge/${dependency.name}-${dependency.version}-green.svg`"></img>
+                <div class="pure-g" style="margin-top: 5px;">
+                  <div class="pure-u-1-8" style="border: 1px solid #e0e9fc; box-sizing: border-box; text-align: center; border-radius: 7px; color: #e0e9fc; height: 1.5em; line-height: 1.5em;">X</div>
+                  <div class="pure-u-7-12" style="line-height: 1.5em; padding-left: 5px; box-sizing: border-box;">{{dependency.name}}</div>
+                  <div class="pure-u-7-24" style="text-align: right; padding-right: 10px; box-sizing: border-box">{{dependency.version}}</div>
+                </div>
               </template>
+              <div v-if="dependencies.length !== 0" style="width: 100%; border: 1px solid #e0e9fc; margin-top: 8px; margin-bottom: 3px;"></div>
             </div>
             <div style="margin-bottom: 5px;">
               <input class="dependency-name" spellcheck="false" placeholder="Name" v-model="dependencyName" />
@@ -50,18 +62,20 @@
               <button class="add-button" v-on:click="addDependency()">+ Add Dependency</button>
             </div>
           </div>
-          <div>
-            <h2>Installation</h2>
-            <div>
-              <textarea placeholder="Provide Installation instructions" rows="2" v-model="projectInstallation"></textarea>
-            </div>
-          </div>
-          <div>
-            <h2>How To Use</h2>
-            <div>
-              <textarea placeholder="Describe your project here..." rows="2" v-model="projectHowToUse"></textarea>
-            </div>
-          </div>
+          <configurator-textarea
+            :title="'Installation'"
+            :placeholder="'Provide Installation instructions'"
+            :rows="2"
+            :storeProperty="'projectInstallation'"
+            :storeCommitEvent="'UPDATE_INSTALLATION'">
+          </configurator-textarea>
+          <configurator-textarea
+            :title="'How To Use'"
+            :placeholder="'Describe on how to use the project'"
+            :rows="2"
+            :storeProperty="'projectHowToUse'"
+            :storeCommitEvent="'UPDATE_HOW_TO_USE'">
+          </configurator-textarea>
           <div>
             <h2>License</h2>
             <select>
@@ -70,67 +84,43 @@
               <option value="2">GPL</option>
             </select>
           </div>
+          <div>
+            <h2>Settings</h2>
+            <configurator-checkbox
+              :text="'Link to this Project'"
+              :storeProperty="'showVueReadme'"
+              :storeCommitEvent="'UPDATE_SHOW_VUE_README'">
+            </configurator-checkbox>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
+import ConfiguratorInput from '@/components/configuratorInput';
+import ConfiguratorTextarea from '@/components/configuratorTextarea';
+import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
+import ReadmePreview from '@/components/readmePreview';
 
 export default {
   name: 'home',
+  components: {
+    'configurator-input': ConfiguratorInput,
+    'configurator-textarea': ConfiguratorTextarea,
+    'configurator-checkbox': ConfiguratorCheckbox,
+    'readme-preview': ReadmePreview,
+  },
   data() {
     return {
       dependencyName: '',
       dependencyVersion: '',
-      standardMargin: -1,
     };
   },
   computed: {
     dependencies: function computedDependencies() {
       return this.$store.state.dependencies;
-    },
-    projectTitle: {
-      get() {
-        return this.$store.state.projectTitle;
-      },
-      set(value) {
-        this.$store.commit('UPDATE_PROJECT_TITLE', value);
-      },
-    },
-    username: {
-      get() {
-        return this.$store.state.username;
-      },
-      set(value) {
-        this.$store.commit('UPDATE_USERNAME', value);
-      },
-    },
-    projectDescription: {
-      get() {
-        return this.$store.state.projectDescription;
-      },
-      set(value) {
-        this.$store.commit('UPDATE_PROJECT_DESCRIPTION', value);
-      },
-    },
-    projectInstallation: {
-      get() {
-        return this.$store.state.projectInstallation;
-      },
-      set(value) {
-        this.$store.commit('UPDATE_INSTALLATION', value);
-      },
-    },
-    projectHowToUse: {
-      get() {
-        return this.$store.state.projectHowToUse;
-      },
-      set(value) {
-        this.$store.commit('UPDATE_HOW_TO_USE', value);
-      },
     },
   },
   methods: {
@@ -259,49 +249,13 @@ select option {
   width: calc(40% - 5px);
 }
 
-.input__project-title {
-  color: #7287b2;
-  border: 1px solid #e0e9fc;
-  border-radius: 7px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  margin-bottom: 5px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-input::-webkit-input-placeholder {
-  color: #8ca6db;
-}
-
-input:focus {
-  outline: none !important;
-  border:1px solid #b993d6;
-  box-shadow: 0 0 3px #719ECE;
-}
-
-textarea {
-  box-sizing: border-box;
-  width: 100%;
-  color: #7287b2;
-  border: 1px solid #e0e9fc;
-  border-radius: 7px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  margin-bottom: 5px;
-  line-height: 1.5em;
-}
-
 h2 {
   margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 300;
 }
 .configuration-panel {
+  background-color: white;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -310,21 +264,11 @@ h2 {
   box-shadow: 0 0 20px rgba(113, 158, 206, 0.2);
 }
 
-textarea::-webkit-input-placeholder {
-  color: #8ca6db;
-}
-
-textarea:focus {
-  outline: none !important;
-  border:1px solid #b993d6;
-  box-shadow: 0 0 3px #719ECE;
-}
-
 .menu-panel {
 }
 
 .readme-panel {
-  height: calc(100vh - 126px);
+  min-height: calc(100vh - 250px);
   background-color: #fcf8ff;
   margin-top: 40px;
   border-radius: 6px;
