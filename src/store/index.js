@@ -13,6 +13,7 @@ const store = new Vuex.Store({
     projectInstallation: '',
     projectHowToUse: '',
     license: -1,
+    showVueReadme: false,
   },
   actions: {},
   mutations: {
@@ -32,10 +33,13 @@ const store = new Vuex.Store({
       state.dependencies.splice(payload.index, 1);
     },
     UPDATE_INSTALLATION: function updateInstallation(state, payload) {
-      state.installation = payload;
+      state.projectInstallation = payload;
     },
     UPDATE_HOW_TO_USE: function updateHowToUse(state, payload) {
-      state.howToUse = payload;
+      state.projectHowToUse = payload;
+    },
+    UPDATE_SHOW_VUE_README: function showVueReadme(state, payload) {
+      state.showVueReadme = payload;
     },
   },
   getters: {},
