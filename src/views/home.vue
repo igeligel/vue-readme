@@ -99,6 +99,8 @@
 </template>
 
 <script>
+import jsonp from 'jsonp';
+
 import ConfiguratorInput from '@/components/configuratorInput';
 import ConfiguratorTextarea from '@/components/configuratorTextarea';
 import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
@@ -140,6 +142,15 @@ export default {
         dependency,
       });
     },
+  },
+  mounted() {
+    jsonp('https://api.github.com/repos/vuejs/vue/contributors', null, (err, data) => {
+      if (err) {
+        return;
+      }
+      // eslint-disable-next-line
+      console.log(data);
+    });
   },
 };
 </script>

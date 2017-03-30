@@ -12,6 +12,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "jsonp": "^0.2.1",
     "marked": "^0.3.6",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
