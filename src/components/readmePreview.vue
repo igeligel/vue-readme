@@ -11,6 +11,11 @@
   color: #24292e;
 }
 
+.markdown-container div {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
 .markdown-container p {
   box-sizing: border-box;
   display: block;
@@ -154,7 +159,62 @@ ${this.$store.state.projectHowToUse}`;
       }
       return '';
     },
-    finalHtml: function finalHtml() {
+    createLicenseText: function createLicenseText() {
+      if (this.$store.state.license === -1) {
+        return '';
+      }
+      const licenseDict = {
+        0: 'MIT',
+        1: 'BSD',
+        2: 'GPL',
+      };
+      return `
+## License
+
+*${this.$store.state.projectTitle}* is realeased under the ${licenseDict[this.$store.state.license]} License.`;
+    },
+    createContributorHtml: function createContributorHtml() {
+      if (this.$store.state.contributors.length === -1
+      || this.$store.state.loadContributors === false) {
+        return '';
+      }
+      const contributors = this.$store.state.contributors;
+      const contributorsHtml = [];
+      contributors.forEach((contributor) => {
+        contributorsHtml.push(`<a href="${contributor.html_url}"><img src="${contributor.avatar_url}" width="100px;" style="max-width:100%;"><br><sub>${contributor.login}</sub></a><br><p>Contributions: ${contributor.contributions}</p>`);
+      });
+      let row = 0;
+      let returnString = '<h2>Contributors</h2>\n\n<table>';
+      for (let i = 0; i < contributorsHtml.length; i += 1) {
+        if (row === 0 && i % 6 === 0) {
+          returnString += '<thead>';
+        }
+        if (row === 1 && i % 6 === 0) {
+          returnString += '<tbody>';
+        }
+        if (i % 6 === 0) {
+          returnString += '<tr>';
+        }
+        if (row === 0) {
+          returnString += `<th align="center">${contributorsHtml[i]}</th>`;
+        } else {
+          returnString += `<td align="center">${contributorsHtml[i]}</td>`;
+        }
+
+        if (i % 6 === 6) {
+          returnString += '</tr>';
+          row += 1;
+        }
+        if (row === 0 && i % 6 === 5) {
+          returnString += '<thead>';
+        }
+      }
+      returnString += '</tbody></table>';
+      // eslint-disable-next-line
+      console.log(returnString);
+      return returnString;
+    },
+    finalMarkdown: function finalMarkdown() {
       const readme = `# ${this.title}
 
 ${this.description}
@@ -165,8 +225,16 @@ ${this.installation}
 
 ${this.howToUse}
 
-${this.linkToVueReadme}`;
-      return marked(readme);
+${this.createLicenseText}
+
+${this.linkToVueReadme}
+
+${this.createContributorHtml}
+`;
+      return readme;
+    },
+    finalHtml: function finalHtml() {
+      return marked(this.finalMarkdown);
     },
   },
 };

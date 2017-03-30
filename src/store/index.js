@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import jsonp from 'jsonp';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,8 @@ const store = new Vuex.Store({
     projectInstallation: '',
     projectHowToUse: '',
     license: -1,
+    loadContributors: false,
+    contributors: [],
     showVueReadme: false,
   },
   actions: {},
@@ -37,6 +40,20 @@ const store = new Vuex.Store({
     },
     UPDATE_HOW_TO_USE: function updateHowToUse(state, payload) {
       state.projectHowToUse = payload;
+    },
+    UPDATE_LICENSE: function updateLicens(state, payload) {
+      state.license = payload;
+    },
+    UPDATE_CONTRIBUTORS: function updateContributors(state, payload) {
+      state.loadContributors = payload;
+      if (payload === true && state.username !== '' && state.projectTitle !== '') {
+        jsonp(`https://api.github.com/repos/${state.username}/${state.projectTitle}/contributors`, null, (err, data) => {
+          if (err) {
+            return;
+          }
+          state.contributors = data.data;
+        });
+      }
     },
     UPDATE_SHOW_VUE_README: function showVueReadme(state, payload) {
       state.showVueReadme = payload;

@@ -78,7 +78,7 @@
           </configurator-textarea>
           <div>
             <h2>License</h2>
-            <select>
+            <select v-model="license">
               <option value="0">MIT</option>
               <option value="1">BSD</option>
               <option value="2">GPL</option>
@@ -86,6 +86,12 @@
           </div>
           <div>
             <h2>Settings</h2>
+            <h2>Load Contributors</h2>
+            <configurator-checkbox
+              :text="'Load Contributors'"
+              :storeProperty="'loadContributors'"
+              :storeCommitEvent="'UPDATE_CONTRIBUTORS'">
+            </configurator-checkbox>
             <configurator-checkbox
               :text="'Link to this Project'"
               :storeProperty="'showVueReadme'"
@@ -99,8 +105,6 @@
 </template>
 
 <script>
-import jsonp from 'jsonp';
-
 import ConfiguratorInput from '@/components/configuratorInput';
 import ConfiguratorTextarea from '@/components/configuratorTextarea';
 import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
@@ -124,6 +128,14 @@ export default {
     dependencies: function computedDependencies() {
       return this.$store.state.dependencies;
     },
+    license: {
+      get() {
+        return this.$store.state.license;
+      },
+      set(value) {
+        this.$store.commit('UPDATE_LICENSE', value);
+      },
+    },
   },
   methods: {
     adjustHeight: function test(event) {
@@ -142,15 +154,6 @@ export default {
         dependency,
       });
     },
-  },
-  mounted() {
-    jsonp('https://api.github.com/repos/vuejs/vue/contributors', null, (err, data) => {
-      if (err) {
-        return;
-      }
-      // eslint-disable-next-line
-      console.log(data);
-    });
   },
 };
 </script>
