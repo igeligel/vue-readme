@@ -1,27 +1,31 @@
-# vue-readme
+# vue-readme by igeligel
 
-> A Vue.js project
+## Description
 
-## Build Setup
+Test Description
 
-``` bash
-# install dependencies
-npm install
+## Dependencies
 
-# serve with hot reload at localhost:8080
-npm run dev
+| Dependency | Version |
+| -- | -- |
+| Newtonsoft.Json | 10.4.5 |
+| Newtonsoft.Json | 10.4.5 |
+| Newtonsoft.Json | 10.4.5 |
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+## Installation
 
-# run unit tests
-npm run unit
+awawdwad
 
-# run all tests
-npm test
-```
+## How To Use
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+awawdawdwad
+
+
+## License
+
+*vue-readme* is realeased under the MIT License.
+
+
+
+<table><thead><tr><th align="center"><a href="https://github.com/yyx990803"><img src="https://avatars2.githubusercontent.com/u/499550?v=3" width="100px;" style="max-width:100%;"><br><sub>yyx990803</sub></a><br><p>Contributions: 1536</p></th><th align="center"><a href="https://github.com/defcc"><img src="https://avatars2.githubusercontent.com/u/2603918?v=3" width="100px;" style="max-width:100%;"><br><sub>defcc</sub></a><br><p>Contributions: 34</p></th><th align="center"><a href="https://github.com/kazupon"><img src="https://avatars2.githubusercontent.com/u/72989?v=3" width="100px;" style="max-width:100%;"><br><sub>kazupon</sub></a><br><p>Contributions: 29</p></th><th align="center"><a href="https://github.com/Jinjiang"><img src="https://avatars2.githubusercontent.com/u/206848?v=3" width="100px;" style="max-width:100%;"><br><sub>Jinjiang</sub></a><br><p>Contributions: 14</p></th><th align="center"><a href="https://github.com/posva"><img src="https://avatars3.githubusercontent.com/u/664177?v=3" width="100px;" style="max-width:100%;"><br><sub>posva</sub></a><br><p>Contributions: 12</p></th><th align="center"><a href="https://github.com/phanan"><img src="https://avatars0.githubusercontent.com/u/8056274?v=3" width="100px;" style="max-width:100%;"><br><sub>phanan</sub></a><br><p>Contributions: 11</p></th><thead><thead><tr><th align="center"><a href="https://github.com/S-YOU"><img src="https://avatars2.githubusercontent.com/u/1001175?v=3" width="100px;" style="max-width:100%;"><br><sub>S-YOU</sub></a><br><p>Contributions: 11</p></th><th align="center"><a href="https://github.com/HerringtonDarkholme"><img src="https://avatars1.githubusercontent.com/u/2883231?v=3" width="100px;" style="max-width:100%;"><br><sub>HerringtonDarkholme</sub></a><br><p>Contributions: 11</p></th><th align="center"><a href="https://github.com/chrisvfritz"><img src="https://avatars1.githubusercontent.com/u/2327556?v=3" width="100px;" style="max-width:100%;"><br><sub>chrisvfritz</sub></a><br><p>Contributions: 10</p></th><th align="center"><a href="https://github.com/blake-newman"><img src="https://avatars2.githubusercontent.com/u/7272211?v=3" width="100px;" style="max-width:100%;"><br><sub>blake-newman</sub></a><br><p>Contributions: 10</p></th><th align="center"><a href="https://github.com/ktsn"><img src="https://avatars3.githubusercontent.com/u/2194624?v=3" width="100px;" style="max-width:100%;"><br><sub>ktsn</sub></a><br><p>Contributions: 9</p></th><th align="center"><a href="https://github.com/Hanks10100"><img src="https://avatars3.githubusercontent.com/u/8401776?v=3" width="100px;" style="max-width:100%;"><br><sub>Hanks10100</sub></a><br><p>Contributions: 8</p></th><thead><thead><tr><th align="center"><a href="https://github.com/xujiongbo"><img src="https://avatars3.githubusercontent.com/u/5391892?v=3" width="100px;" style="max-width:100%;"><br><sub>xujiongbo</sub></a><br><p>Contributions: 7</p></th><th align="center"><a href="https://github.com/kaorun343"><img src="https://avatars2.githubusercontent.com/u/5625395?v=3" width="100px;" style="max-width:100%;"><br><sub>kaorun343</sub></a><br><p>Contributions: 6</p></th><th align="center"><a href="https://github.com/Kingwl"><img src="https://avatars0.githubusercontent.com/u/6831019?v=3" width="100px;" style="max-width:100%;"><br><sub>Kingwl</sub></a><br><p>Contributions: 6</p></th><th align="center"><a href="https://github.com/KingMario"><img src="https://avatars0.githubusercontent.com/u/3956876?v=3" width="100px;" style="max-width:100%;"><br><sub>KingMario</sub></a><br><p>Contributions: 3</p></th><th align="center"><a href="https://github.com/dsonet"><img src="https://avatars0.githubusercontent.com/u/457552?v=3" width="100px;" style="max-width:100%;"><br><sub>dsonet</sub></a><br><p>Contributions: 3</p></th><th align="center"><a href="https://github.com/bluemsn"><img src="https://avatars3.githubusercontent.com/u/3715420?v=3" width="100px;" style="max-width:100%;"><br><sub>bluemsn</sub></a><br><p>Contributions: 3</p></th><thead><thead><tr><th align="center"><a href="https://github.com/asheb"><img src="https://avatars2.githubusercontent.com/u/22747?v=3" width="100px;" style="max-width:100%;"><br><sub>asheb</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/znck"><img src="https://avatars3.githubusercontent.com/u/2596484?v=3" width="100px;" style="max-width:100%;"><br><sub>znck</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/tejitak"><img src="https://avatars0.githubusercontent.com/u/5313274?v=3" width="100px;" style="max-width:100%;"><br><sub>tejitak</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/zephraph"><img src="https://avatars2.githubusercontent.com/u/3087225?v=3" width="100px;" style="max-width:100%;"><br><sub>zephraph</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/jingsam"><img src="https://avatars0.githubusercontent.com/u/1522494?v=3" width="100px;" style="max-width:100%;"><br><sub>jingsam</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/yantene"><img src="https://avatars0.githubusercontent.com/u/2714111?v=3" width="100px;" style="max-width:100%;"><br><sub>yantene</sub></a><br><p>Contributions: 2</p></th><thead><thead><tr><th align="center"><a href="https://github.com/mingmingwon"><img src="https://avatars0.githubusercontent.com/u/9499245?v=3" width="100px;" style="max-width:100%;"><br><sub>mingmingwon</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/bartlomieju"><img src="https://avatars0.githubusercontent.com/u/13602871?v=3" width="100px;" style="max-width:100%;"><br><sub>bartlomieju</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/adamawang"><img src="https://avatars1.githubusercontent.com/u/16788677?v=3" width="100px;" style="max-width:100%;"><br><sub>adamawang</sub></a><br><p>Contributions: 1</p></th><th align="center"><a href="https://github.com/Alex-Sokolov"><img src="https://avatars0.githubusercontent.com/u/4497128?v=3" width="100px;" style="max-width:100%;"><br><sub>Alex-Sokolov</sub></a><br><p>Contributions: 1</p></th><th align="center"><a href="https://github.com/AlexandreBonneau"><img src="https://avatars0.githubusercontent.com/u/7248877?v=3" width="100px;" style="max-width:100%;"><br><sub>AlexandreBonneau</sub></a><br><p>Contributions: 1</p></th><th align="center"><a href="https://github.com/likealcohol"><img src="https://avatars3.githubusercontent.com/u/847460?v=3" width="100px;" style="max-width:100%;"><br><sub>likealcohol</sub></a><br><p>Contributions: 1</p></th><thead></tbody></table>
