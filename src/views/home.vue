@@ -42,26 +42,8 @@
             :storeProperty="'projectDescription'"
             :storeCommitEvent="'UPDATE_PROJECT_DESCRIPTION'">
           </configurator-textarea>
-          <div style="margin-bottom: 15px;">
-            <h2>Dependencies</h2>
-            <div class="dependency-shields-container">
-              <template v-for="dependency in dependencies">
-                <div class="pure-g" style="margin-top: 5px;">
-                  <div class="pure-u-1-8" style="border: 1px solid #e0e9fc; box-sizing: border-box; text-align: center; border-radius: 7px; color: #e0e9fc; height: 1.5em; line-height: 1.5em;">X</div>
-                  <div class="pure-u-7-12" style="line-height: 1.5em; padding-left: 5px; box-sizing: border-box;">{{dependency.name}}</div>
-                  <div class="pure-u-7-24" style="text-align: right; padding-right: 10px; box-sizing: border-box">{{dependency.version}}</div>
-                </div>
-              </template>
-              <div v-if="dependencies.length !== 0" style="width: 100%; border: 1px solid #e0e9fc; margin-top: 8px; margin-bottom: 3px;"></div>
-            </div>
-            <div style="margin-bottom: 5px;">
-              <input class="dependency-name" spellcheck="false" placeholder="Name" v-model="dependencyName" />
-              <input class="dependency-version" spellcheck="false" placeholder="Version" v-model="dependencyVersion" />
-            </div>
-            <div>
-              <button class="add-button" v-on:click="addDependency()">+ Add Dependency</button>
-            </div>
-          </div>
+          <configurator-list-add>
+          </configurator-list-add>
           <configurator-textarea
             :title="'Installation'"
             :placeholder="'Provide Installation instructions'"
@@ -108,6 +90,7 @@
 import ConfiguratorInput from '@/components/configuratorInput';
 import ConfiguratorTextarea from '@/components/configuratorTextarea';
 import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
+import ConfiguratorListAdd from '@/components/configuratorListAdd';
 import ReadmePreview from '@/components/readmePreview';
 
 export default {
@@ -116,6 +99,7 @@ export default {
     'configurator-input': ConfiguratorInput,
     'configurator-textarea': ConfiguratorTextarea,
     'configurator-checkbox': ConfiguratorCheckbox,
+    'configurator-list-add': ConfiguratorListAdd,
     'readme-preview': ReadmePreview,
   },
   data() {
@@ -125,9 +109,6 @@ export default {
     };
   },
   computed: {
-    dependencies: function computedDependencies() {
-      return this.$store.state.dependencies;
-    },
     license: {
       get() {
         return this.$store.state.license;
@@ -143,16 +124,6 @@ export default {
       textarea.style.height = '1px';
       const lineHeight = parseInt(window.getComputedStyle(textarea)['line-height'], 10);
       textarea.style.height = `${lineHeight + textarea.scrollHeight}px`;
-    },
-    addDependency: function addDependency() {
-      const dependency = {
-        name: this.dependencyName,
-        version: this.dependencyVersion,
-      };
-      this.$store.commit({
-        type: 'ADD_DEPENDENCY',
-        dependency,
-      });
     },
   },
 };
@@ -207,60 +178,11 @@ select option {
   width: 50px;
 }
 
-.add-button {
-  color: #faf5ff;
-  width: 100%;
-  height: 2.5em;
-  border-radius: 7px;
-  border: 0;
-  text-transform: uppercase;
-  background-color: #8477B7;
-}
-
-.add-button:hover {
-  background-color: #8b7fbb;
-}
-
-.add-button:focus {
-  outline: 0;
-}
-
 .dependency-shields-container {
   padding-bottom: 5px;
 }
 .dependency-shields-container img {
   margin-right: 5px;
-}
-
-.dependency-name {
-  color: #7287b2;
-  display: inline-block;
-  border: 1px solid #e0e9fc;
-  border-radius: 7px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  margin-bottom: 5px;
-  box-sizing:border-box;
-  width: calc(60% - 5px);
-  float: left;
-  margin-right: 5px;
-}
-
-.dependency-version {
-  display: inline-block;
-  color: #7287b2;
-  border: 1px solid #e0e9fc;
-  border-radius: 7px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  margin-bottom: 5px;
-  box-sizing:border-box;
-  margin-left: 5px;
-  width: calc(40% - 5px);
 }
 
 h2 {
