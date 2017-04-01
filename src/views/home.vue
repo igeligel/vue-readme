@@ -69,7 +69,11 @@
           <div>
             <h2>Settings</h2>
             <h2>Load Contributors</h2>
-            <button v-on:click="loadContributors">Load Contributors</button>
+            <vue-r-button
+              :label="'Load Contributors'"
+              :onClick="loadContributors">
+            </vue-r-button>
+            <!--<button v-on:click="loadContributors">Load Contributors</button>-->
             <configurator-checkbox
               :text="'Link to this Project'"
               :storeProperty="'showVueReadme'"
@@ -88,6 +92,7 @@ import ConfiguratorTextarea from '@/components/configuratorTextarea';
 import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
 import ConfiguratorListAdd from '@/components/configuratorListAdd';
 import ReadmePreview from '@/components/readmePreview';
+import VueButton from '@/components/vue-r-button';
 
 export default {
   name: 'home',
@@ -97,6 +102,7 @@ export default {
     'configurator-checkbox': ConfiguratorCheckbox,
     'configurator-list-add': ConfiguratorListAdd,
     'readme-preview': ReadmePreview,
+    'vue-r-button': VueButton,
   },
   data() {
     return {
