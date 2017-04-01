@@ -12,8 +12,8 @@
       <div v-if="dependencies.length !== 0" class="divider"></div>
     </div>
     <div class="dependency-container">
-      <input class="dependency-name" spellcheck="false" placeholder="Name" v-model="dependencyName" />
-      <input class="dependency-version" spellcheck="false" placeholder="Version" v-model="dependencyVersion" />
+      <input class="dependency-name" spellcheck="false" placeholder="Name" v-model="dependencyName" ref="dependencyNameInput" />
+      <input class="dependency-version" spellcheck="false" placeholder="Version" v-model="dependencyVersion" v-on:keyup.enter="addDependency"/>
     </div>
     <div>
       <button class="add-button" v-on:click="addDependency()">+ Add Dependency</button>
@@ -22,6 +22,16 @@
 </template>
 
 <style scoped>
+input::-webkit-input-placeholder {
+  color: #8ca6db;
+}
+
+input:focus {
+  outline: none !important;
+  border:1px solid #b993d6;
+  box-shadow: 0 0 3px #719ECE;
+}
+
 .divider {
   width: 100%;
   border: 1px solid #e0e9fc;
@@ -48,8 +58,6 @@
 .dependency-container {
   margin-bottom: 5px;
 }
-
-
 
 .container {
   margin-bottom: 15px;
@@ -95,11 +103,13 @@
   margin-left: 5px;
   width: calc(40% - 5px);
 }
+
 h2 {
   margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 300;
 }
+
 .add-button {
   color: #faf5ff;
   width: 100%;
@@ -127,6 +137,12 @@ export default {
       return this.$store.state.dependencies;
     },
   },
+  data() {
+    return {
+      dependencyName: '',
+      dependencyVersion: '',
+    };
+  },
   methods: {
     addDependency: function addDependency() {
       const dependency = {
@@ -137,6 +153,9 @@ export default {
         type: 'ADD_DEPENDENCY',
         dependency,
       });
+      this.dependencyName = '';
+      this.dependencyVersion = '';
+      this.$refs.dependencyNameInput.focus();
     },
   },
 };

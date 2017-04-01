@@ -69,11 +69,7 @@
           <div>
             <h2>Settings</h2>
             <h2>Load Contributors</h2>
-            <configurator-checkbox
-              :text="'Load Contributors'"
-              :storeProperty="'loadContributors'"
-              :storeCommitEvent="'UPDATE_CONTRIBUTORS'">
-            </configurator-checkbox>
+            <button v-on:click="loadContributors">Load Contributors</button>
             <configurator-checkbox
               :text="'Link to this Project'"
               :storeProperty="'showVueReadme'"
@@ -119,6 +115,9 @@ export default {
     },
   },
   methods: {
+    loadContributors: function loadContributors() {
+      this.$store.commit('UPDATE_CONTRIBUTORS');
+    },
     adjustHeight: function test(event) {
       const textarea = event.srcElement;
       textarea.style.height = '1px';
