@@ -68,17 +68,17 @@
           </div>
           <div>
             <h2>Settings</h2>
-            <h2>Load Contributors</h2>
             <vue-r-button
               :label="'Load Contributors'"
               :onClick="loadContributors">
             </vue-r-button>
-            <!--<button v-on:click="loadContributors">Load Contributors</button>-->
-            <configurator-checkbox
-              :text="'Link to this Project'"
-              :storeProperty="'showVueReadme'"
-              :storeCommitEvent="'UPDATE_SHOW_VUE_README'">
-            </configurator-checkbox>
+            <div style="margin-top: 15px;">
+              <configurator-checkbox
+                :text="'Link to this Project'"
+                :storeProperty="'showVueReadme'"
+                :storeCommitEvent="'UPDATE_SHOW_VUE_README'">
+              </configurator-checkbox>
+            </div>
           </div>
         </div>
       </div>
@@ -195,6 +195,11 @@ h2 {
   margin-bottom: 10px;
   font-weight: 300;
 }
+
+h3 {
+  font-weight: 300;
+}
+
 .configuration-panel {
   background-color: white;
   padding-left: 20px;

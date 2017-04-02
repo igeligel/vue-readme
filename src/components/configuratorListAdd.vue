@@ -16,7 +16,10 @@
       <input class="dependency-version" spellcheck="false" placeholder="Version" v-model="dependencyVersion" v-on:keyup.enter="addDependency"/>
     </div>
     <div>
-      <button class="add-button" v-on:click="addDependency()">+ Add Dependency</button>
+      <vue-r-button
+        :label="'+ Add Dependency'"
+        :onClick="addDependency">
+      </vue-r-button>
     </div>
   </div>
 </template>
@@ -109,29 +112,16 @@ h2 {
   margin-bottom: 10px;
   font-weight: 300;
 }
-
-.add-button {
-  color: #faf5ff;
-  width: 100%;
-  height: 2.5em;
-  border-radius: 7px;
-  border: 0;
-  text-transform: uppercase;
-  background-color: #8477B7;
-}
-
-.add-button:hover {
-  background-color: #8b7fbb;
-}
-
-.add-button:focus {
-  outline: 0;
-}
 </style>
 
 <script>
+import VueButton from '@/components/vue-r-button';
+
 export default {
   name: 'home',
+  components: {
+    'vue-r-button': VueButton,
+  },
   computed: {
     dependencies: function computedDependencies() {
       return this.$store.state.dependencies;
