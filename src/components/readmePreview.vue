@@ -178,6 +178,9 @@ ${this.$store.state.projectHowToUse}`;
       || this.$store.state.loadContributors === false) {
         return '';
       }
+      if (this.$store.state.contributors.length === 0) {
+        return '';
+      }
       const contributors = this.$store.state.contributors;
       const contributorsHtml = [];
       contributors.forEach((contributor) => {
