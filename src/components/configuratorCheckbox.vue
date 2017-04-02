@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="input__checkbox__container">
-      <input type="checkbox" value="None" id="squaredThree" name="check" v-model="checked" />
-      <label for="squaredThree"></label>
-      <div style="display: inline-block;">
-        <span style="font-weight: 300; padding-left: 14px; line-height: 26px;" v-text="text"></span>
-      </div>
+  <div class="input__checkbox__container">
+    <input type="checkbox" value="None" id="squaredThree" name="check" v-model="checked" />
+    <label for="squaredThree"></label>
+    <div style="display: inline-block;">
+      <span style="font-weight: 300; padding-left: 14px; line-height: 26px;" v-text="text"></span>
     </div>
   </div>
 </template>
