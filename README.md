@@ -2,30 +2,31 @@
 
 ## Description
 
-Test Description
+A vue.js application which will let you easily create project readme's in markdown format and a real time show case on how it looks. It is working serverless so all data fetching is done by CORS requests to the GitHub API.
 
-## Dependencies
+It also has nice features like:
 
-| Dependency | Version |
-| -- | -- |
-| Newtonsoft.Json | 10.4.5 |
-| Newtonsoft.Json | 10.4.5 |
-| Newtonsoft.Json | 10.4.5 |
+- Automatic contributor fetching
 
 
 ## Installation
 
-awawdwad
+To install this you need node.js and npm installed on your local machine.
 
-## How To Use
+After this run the following commands after cloning this repository:
 
-awawdawdwad
+```bash
+npm run dev
+```
 
+For building this project just type:
+
+```
+npm run build
+```
+
+This will create a production build and also checks out a new gh-pages branch if it is not existing and pushing the content to it.
 
 ## License
 
-*vue-readme* is realeased under the MIT License.
-
-
-
-<table><thead><tr><th align="center"><a href="https://github.com/yyx990803"><img src="https://avatars2.githubusercontent.com/u/499550?v=3" width="100px;" style="max-width:100%;"><br><sub>yyx990803</sub></a><br><p>Contributions: 1536</p></th><th align="center"><a href="https://github.com/defcc"><img src="https://avatars2.githubusercontent.com/u/2603918?v=3" width="100px;" style="max-width:100%;"><br><sub>defcc</sub></a><br><p>Contributions: 34</p></th><th align="center"><a href="https://github.com/kazupon"><img src="https://avatars2.githubusercontent.com/u/72989?v=3" width="100px;" style="max-width:100%;"><br><sub>kazupon</sub></a><br><p>Contributions: 29</p></th><th align="center"><a href="https://github.com/Jinjiang"><img src="https://avatars2.githubusercontent.com/u/206848?v=3" width="100px;" style="max-width:100%;"><br><sub>Jinjiang</sub></a><br><p>Contributions: 14</p></th><th align="center"><a href="https://github.com/posva"><img src="https://avatars3.githubusercontent.com/u/664177?v=3" width="100px;" style="max-width:100%;"><br><sub>posva</sub></a><br><p>Contributions: 12</p></th><th align="center"><a href="https://github.com/phanan"><img src="https://avatars0.githubusercontent.com/u/8056274?v=3" width="100px;" style="max-width:100%;"><br><sub>phanan</sub></a><br><p>Contributions: 11</p></th><thead><thead><tr><th align="center"><a href="https://github.com/S-YOU"><img src="https://avatars2.githubusercontent.com/u/1001175?v=3" width="100px;" style="max-width:100%;"><br><sub>S-YOU</sub></a><br><p>Contributions: 11</p></th><th align="center"><a href="https://github.com/HerringtonDarkholme"><img src="https://avatars1.githubusercontent.com/u/2883231?v=3" width="100px;" style="max-width:100%;"><br><sub>HerringtonDarkholme</sub></a><br><p>Contributions: 11</p></th><th align="center"><a href="https://github.com/chrisvfritz"><img src="https://avatars1.githubusercontent.com/u/2327556?v=3" width="100px;" style="max-width:100%;"><br><sub>chrisvfritz</sub></a><br><p>Contributions: 10</p></th><th align="center"><a href="https://github.com/blake-newman"><img src="https://avatars2.githubusercontent.com/u/7272211?v=3" width="100px;" style="max-width:100%;"><br><sub>blake-newman</sub></a><br><p>Contributions: 10</p></th><th align="center"><a href="https://github.com/ktsn"><img src="https://avatars3.githubusercontent.com/u/2194624?v=3" width="100px;" style="max-width:100%;"><br><sub>ktsn</sub></a><br><p>Contributions: 9</p></th><th align="center"><a href="https://github.com/Hanks10100"><img src="https://avatars3.githubusercontent.com/u/8401776?v=3" width="100px;" style="max-width:100%;"><br><sub>Hanks10100</sub></a><br><p>Contributions: 8</p></th><thead><thead><tr><th align="center"><a href="https://github.com/xujiongbo"><img src="https://avatars3.githubusercontent.com/u/5391892?v=3" width="100px;" style="max-width:100%;"><br><sub>xujiongbo</sub></a><br><p>Contributions: 7</p></th><th align="center"><a href="https://github.com/kaorun343"><img src="https://avatars2.githubusercontent.com/u/5625395?v=3" width="100px;" style="max-width:100%;"><br><sub>kaorun343</sub></a><br><p>Contributions: 6</p></th><th align="center"><a href="https://github.com/Kingwl"><img src="https://avatars0.githubusercontent.com/u/6831019?v=3" width="100px;" style="max-width:100%;"><br><sub>Kingwl</sub></a><br><p>Contributions: 6</p></th><th align="center"><a href="https://github.com/KingMario"><img src="https://avatars0.githubusercontent.com/u/3956876?v=3" width="100px;" style="max-width:100%;"><br><sub>KingMario</sub></a><br><p>Contributions: 3</p></th><th align="center"><a href="https://github.com/dsonet"><img src="https://avatars0.githubusercontent.com/u/457552?v=3" width="100px;" style="max-width:100%;"><br><sub>dsonet</sub></a><br><p>Contributions: 3</p></th><th align="center"><a href="https://github.com/bluemsn"><img src="https://avatars3.githubusercontent.com/u/3715420?v=3" width="100px;" style="max-width:100%;"><br><sub>bluemsn</sub></a><br><p>Contributions: 3</p></th><thead><thead><tr><th align="center"><a href="https://github.com/asheb"><img src="https://avatars2.githubusercontent.com/u/22747?v=3" width="100px;" style="max-width:100%;"><br><sub>asheb</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/znck"><img src="https://avatars3.githubusercontent.com/u/2596484?v=3" width="100px;" style="max-width:100%;"><br><sub>znck</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/tejitak"><img src="https://avatars0.githubusercontent.com/u/5313274?v=3" width="100px;" style="max-width:100%;"><br><sub>tejitak</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/zephraph"><img src="https://avatars2.githubusercontent.com/u/3087225?v=3" width="100px;" style="max-width:100%;"><br><sub>zephraph</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/jingsam"><img src="https://avatars0.githubusercontent.com/u/1522494?v=3" width="100px;" style="max-width:100%;"><br><sub>jingsam</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/yantene"><img src="https://avatars0.githubusercontent.com/u/2714111?v=3" width="100px;" style="max-width:100%;"><br><sub>yantene</sub></a><br><p>Contributions: 2</p></th><thead><thead><tr><th align="center"><a href="https://github.com/mingmingwon"><img src="https://avatars0.githubusercontent.com/u/9499245?v=3" width="100px;" style="max-width:100%;"><br><sub>mingmingwon</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/bartlomieju"><img src="https://avatars0.githubusercontent.com/u/13602871?v=3" width="100px;" style="max-width:100%;"><br><sub>bartlomieju</sub></a><br><p>Contributions: 2</p></th><th align="center"><a href="https://github.com/adamawang"><img src="https://avatars1.githubusercontent.com/u/16788677?v=3" width="100px;" style="max-width:100%;"><br><sub>adamawang</sub></a><br><p>Contributions: 1</p></th><th align="center"><a href="https://github.com/Alex-Sokolov"><img src="https://avatars0.githubusercontent.com/u/4497128?v=3" width="100px;" style="max-width:100%;"><br><sub>Alex-Sokolov</sub></a><br><p>Contributions: 1</p></th><th align="center"><a href="https://github.com/AlexandreBonneau"><img src="https://avatars0.githubusercontent.com/u/7248877?v=3" width="100px;" style="max-width:100%;"><br><sub>AlexandreBonneau</sub></a><br><p>Contributions: 1</p></th><th align="center"><a href="https://github.com/likealcohol"><img src="https://avatars3.githubusercontent.com/u/847460?v=3" width="100px;" style="max-width:100%;"><br><sub>likealcohol</sub></a><br><p>Contributions: 1</p></th><thead></tbody></table>
+vue-readme is realeased under the MIT License.
