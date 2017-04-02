@@ -123,9 +123,7 @@ export default {
   name: 'hello',
   mounted() {
     /* eslint-disable */
-    console.log(window);
     var menu = document.getElementById('menu');
-    console.log(menu);
     var WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange' : 'resize';
 
     function toggleHorizontal() {
