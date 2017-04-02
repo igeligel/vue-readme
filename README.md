@@ -2,7 +2,7 @@
 
 ## Description
 
-A vue.js application which will let you easily create project readme's in markdown format and a real time show case on how it looks. It is working serverless so all data fetching is done by CORS requests to the GitHub API.
+A [vue.js](https://vuejs.org/) application which will let you easily create project readme's in markdown format and a real time show case on how it looks. It is working serverless so all data fetching is done by CORS requests to the [GitHub API](https://developer.github.com/v3/).
 
 It also has nice features like:
 
@@ -11,7 +11,7 @@ It also has nice features like:
 
 ## Installation
 
-To install this you need node.js and npm installed on your local machine.
+To install this you need [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your local machine.
 
 After this run the following commands after cloning this repository:
 
@@ -31,4 +31,4 @@ This will create a production build and also checks out a new gh-pages branch if
 
 ## License
 
-vue-readme is realeased under the MIT License.
+vue-readme is realeased under the [MIT License](https://github.com/igeligel/vue-readme/blob/master/LICENSE).
