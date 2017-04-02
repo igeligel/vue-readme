@@ -20,6 +20,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+button {
+  color: #faf5ff;
+  width: 100%;
+  height: 2.5em;
+  border-radius: 7px;
+  border: 0;
+  text-transform: uppercase;
+  background-color: #8477B7;
+}
 
+button:hover {
+  background-color: #8b7fbb;
+}
+
+button:focus {
+  outline: 0;
+}
 </style>
