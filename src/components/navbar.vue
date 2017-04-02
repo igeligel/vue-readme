@@ -6,20 +6,13 @@
         <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
       </div>
     </div>
+    <div class="pure-u-1 pure-u-md-1-3"></div>
     <div class="pure-u-1 pure-u-md-1-3">
-      <div class="pure-menu pure-menu-horizontal custom-can-transform">
+      <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
         <ul class="pure-menu-list">
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="pure-u-1 pure-u-md-1-3">
-      <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
-        <ul class="pure-menu-list">
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Yahoo</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">W3C</a></li>
         </ul>
       </div>
     </div>
