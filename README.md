@@ -19,6 +19,8 @@ After this run the following commands after cloning this repository:
 npm run dev
 ```
 
+The project then is accessible by: [http://localhost:8960](http://localhost:8960).
+
 For building this project just type:
 
 ```
