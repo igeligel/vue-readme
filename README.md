@@ -2,7 +2,7 @@
 
 ## Description
 
-A [vue.js](https://vuejs.org/) application which will let you easily create project readme's in markdown format and a real time show case on how it looks. It is working serverless so all data fetching is done by CORS requests to the [GitHub API](https://developer.github.com/v3/).
+vue-readme is a [vue.js](https://vuejs.org/) application which makes you easily create project readme's in markdown format and shows content in a real time. It is working serverless so all data fetching is done by CORS requests to the [GitHub API](https://developer.github.com/v3/).
 
 It also has nice features like:
 
