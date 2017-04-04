@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-The application then is accessible at [http://localhost:8960](http://localhost:8960).
+The application can then be accessed at [http://localhost:8960](http://localhost:8960).
 
 To create a production build on the `gh-pages` branch run:
 
