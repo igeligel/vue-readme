@@ -1,34 +1,31 @@
-# vue-readme by igeligel
+# vue-readme by [igeligel](https://github.com/igeligel)
 
-## Description
+> Serverless [vue.js](https://vuejs.org/) application for creating project readmes in markdown.
 
-vue-readme is a [vue.js](https://vuejs.org/) application which makes you easily create project readme's in markdown format and shows content in a real time. It is working serverless so all data fetching is done by CORS requests to the [GitHub API](https://developer.github.com/v3/).
+## Features
 
-It also has nice features like:
-
-- Automatic contributor fetching
-
+- Automatic contributor fetching via [GitHub API](https://developer.github.com/v3/)
+- Live preview for markdown
 
 ## Installation
 
-To install this you need [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your local machine.
-
-After this run the following commands after cloning this repository:
+With [node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/) and [git](https://git-scm.com) installed run:
 
 ```bash
+git clone https://github.com/igeligel/vue-readme
+cd vue-readme
+npm install
 npm run dev
 ```
 
-The project then is accessible by: [http://localhost:8960](http://localhost:8960).
+The application can then be accessed at [http://localhost:8960](http://localhost:8960).
 
-For building this project just type:
+To create a production build on the `gh-pages` branch run:
 
-```
+```bash
 npm run build
 ```
 
-This will create a production build and also checks out a new gh-pages branch if it is not existing and pushing the content to it.
-
 ## License
 
-vue-readme is realeased under the [MIT License](https://github.com/igeligel/vue-readme/blob/master/LICENSE).
+vue-readme is released under the [MIT License](https://github.com/igeligel/vue-readme/blob/master/LICENSE).
