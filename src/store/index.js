@@ -8,8 +8,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     projectTitle: '',
-    shields: [],
     username: '',
+    shields: [],
     projectDescription: '',
     dependencies: [],
     projectInstallation: '',
@@ -25,6 +25,15 @@ const store = new Vuex.Store({
     },
     UPDATE_USERNAME: function updateUsername(state, payload) {
       state.username = payload;
+    },
+    UPDATE_SHIELDS: function updateShields(state, payload) {
+      state.shields.push({
+        name: payload.name,
+        value: payload.value,
+        url: payload.url,
+        style: payload.style,
+        color: payload.color,
+      });
     },
     UPDATE_PROJECT_DESCRIPTION: function updateDescription(state, payload) {
       state.projectDescription = payload;

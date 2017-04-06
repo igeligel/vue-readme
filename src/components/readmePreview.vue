@@ -119,6 +119,18 @@ export default {
     title: function getTitle() {
       return `${this.$store.state.projectTitle} by ${this.$store.state.username}`;
     },
+    shields: function getShields() {
+      if (this.$store.state.shields.length === 0) {
+        return '';
+      }
+      let result = '<div style="text-align:center">';
+      this.$store.state.shields.forEach((shield) => {
+        const color = shield.color.replace('#', '');
+        result += `<a href="${shield.url}">`;
+        result += `<img src="https://img.shields.io/badge/${shield.name}-${shield.value}-${color}.svg" alt="badge ${shield.name}" /></a> `;
+      });
+      return `${result}</div>`;
+    },
     linkToVueReadme: function getLinkToVueReadme() {
       if (this.$store.state.showVueReadme === true) {
         return '## This readme is powered by vue-readme\nCheck out vue-readme [Website | [GitHub](https://github.com/igeligel/vue-readme)]';
@@ -129,7 +141,7 @@ export default {
       if (this.$store.state.projectDescription.length > 0) {
         return `## Description
 
-${this.$store.state.projectDescription}`;
+> ${this.$store.state.projectDescription}`;
       }
       return '';
     },
@@ -219,6 +231,8 @@ ${this.$store.state.projectHowToUse}`;
     },
     finalMarkdown: function finalMarkdown() {
       const readme = `# ${this.title}
+
+${this.shields}
 
 ${this.description}
 
