@@ -108,6 +108,21 @@
 .markdown-container img[align=left] {
     padding-right: 20px;
 }
+
+.markdown-container blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+    margin: 0;
+}
+
+.markdown-container blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-container blockquote>:last-child {
+    margin-bottom: 0;
+}
 </style>
 
 <script>
@@ -117,7 +132,7 @@ export default {
   name: 'readme-preview',
   computed: {
     title: function getTitle() {
-      return `${this.$store.state.projectTitle} by ${this.$store.state.username}`;
+      return `${this.$store.state.projectTitle} by <a href="https://github.com/${this.$store.state.username}">${this.$store.state.username}</a>`;
     },
     shields: function getShields() {
       if (this.$store.state.shields.length === 0) {
