@@ -196,6 +196,9 @@ ${this.$store.state.projectHowToUse}`;
       return '';
     },
     createLicenseText: function createLicenseText() {
+      if (this.$store.state.projectTitle === undefined || this.$store.state.projectTitle === '') {
+        return '';
+      }
       if (this.$store.state.license === -1) {
         return '';
       }
