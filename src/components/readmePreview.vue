@@ -157,7 +157,7 @@ export default {
     },
     linkToVueReadme: function getLinkToVueReadme() {
       if (this.$store.state.showVueReadme === true) {
-        return '## This readme is powered by vue-readme\nCheck out vue-readme [Website | [GitHub](https://github.com/igeligel/vue-readme)]';
+        return '## This readme is powered by vue-readme\nCheck out vue-readme [[Website](https://igeligel.github.io/vue-readme) | [GitHub](https://github.com/igeligel/vue-readme)]';
       }
       return '';
     },

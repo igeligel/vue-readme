@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 v-text="title"></h2>
+    <h2 v-if="title !== undefined && title.length !== 0" v-text="title"></h2>
     <div>
       <input class="configurator__input" spellcheck="false" :placeholder="placeholder" v-model="storeValue">
     </div>
