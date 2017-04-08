@@ -141,8 +141,17 @@ export default {
       let result = '<div style="text-align:center">';
       this.$store.state.shields.forEach((shield) => {
         const color = shield.color.replace('#', '');
-        result += `<a href="${shield.url}">`;
-        result += `<img src="https://img.shields.io/badge/${shield.name}-${shield.value}-${color}.svg" alt="badge ${shield.name}" /></a> `;
+        const styleDict = {
+          0: '?style=flat',
+          1: '?style=plastic',
+          2: '?style=flat-square',
+          3: '?style=social',
+        };
+        const url = `https://img.shields.io/badge/${shield.name}-${shield.value}-${color}.svg${styleDict[shield.style]}`;
+        const imageString = `<img src="${url}" alt="badge ${shield.name}" />`;
+        result += shield.url !== ''
+          ? `<a href="${shield.url}">${imageString}</a> `
+          : `${imageString} `;
       });
       return `${result}</div>`;
     },
