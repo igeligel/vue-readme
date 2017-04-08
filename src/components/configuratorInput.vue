@@ -47,13 +47,25 @@ export default {
     storeProperty: String,
     storeCommitEvent: String,
   },
+  data() {
+    return {
+      backupModel: '',
+    };
+  },
   computed: {
     storeValue: {
       get() {
-        return this.$store.state[this.storeProperty];
+        if (this.storeProperty !== undefined) {
+          return this.$store.state[this.storeProperty];
+        }
+        return this.backupModel;
       },
       set(value) {
-        this.$store.commit(this.storeCommitEvent, value);
+        if (this.storeCommitEvent !== undefined) {
+          this.$store.commit(this.storeCommitEvent, value);
+        } else {
+          this.backupModel = value;
+        }
       },
     },
   },
