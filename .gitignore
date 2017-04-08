@@ -4,3 +4,8 @@ dist/
 npm-debug.log
 yarn-error.log
 test/unit/coverage
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
