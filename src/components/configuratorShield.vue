@@ -2,10 +2,10 @@
   <div>
     <h2>Badges</h2>
     <div class="pure-g">
-      <div class="pure-u-1-2" style="padding-right: 2px; box-sizing: border-box;">
+      <div class="pure-u-1-2 grid__padding--right">
         <input class="configurator__input" spellcheck="false" placeholder="Name" v-model="shieldName">
       </div>
-      <div class="pure-u-1-2" style="padding-left: 2px; box-sizing: border-box;">
+      <div class="pure-u-1-2 grid__padding--left">
         <input class="configurator__input" spellcheck="false" placeholder="Value" v-model="shieldValue">
       </div>
     </div>
@@ -15,40 +15,39 @@
       </div>
     </div>
     <div class="pure-g">
-      <div class="pure-u-1-3" style="padding-right: 2px; box-sizing: border-box;">
+      <div class="pure-u-1-3 grid__padding--right">
         <input class="configurator__input" spellcheck="false" placeholder="Color" v-model="shieldColor">
       </div>
-      <div class="pure-u-1-2" style="padding-right: 2px; padding-left: 2px; box-sizing: border-box;">
+      <div class="pure-u-1-2 grid__padding--left--right">
         <select v-model="selectedShield">
-          <option v-for="option in shieldOptions" v-bind:value="option.value">
-            {{ option.text }}
-          </option>
+          <option v-for="option in shieldOptions" v-bind:value="option.value" v-text="option.text"></option>
         </select>
       </div>
-      <div class="pure-u-1-6" style="padding-left: 2px; box-sizing: border-box;">
-        <button v-on:click="addShield">Add</button>
+      <div class="pure-u-1-6 grid__padding--left">
+        <vue-button
+          :label="'Add'"
+          :onClick="addShield">
+        </vue-button>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-button {
-  color: #faf5ff;
-  width: 100%;
-  height: 2.5em;
-  border-radius: 7px;
-  border: 0;
-  text-transform: uppercase;
-  background-color: #8477B7;
+.grid__padding--left {
+  padding-left: 2px;
+  box-sizing: border-box;
 }
 
-button:hover {
-  background-color: #8b7fbb;
+.grid__padding--right {
+  padding-right: 2px;
+  box-sizing: border-box;
 }
 
-button:focus {
-  outline: 0;
+.grid__padding--left--right {
+  padding-left: 2px;
+  padding-right: 2px;
+  box-sizing: border-box;
 }
 
 select {
@@ -69,9 +68,7 @@ select:focus {
 select option {
   width: 50px;
 }
-button {
-  width: 100%;
-}
+
 h2 {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -105,12 +102,16 @@ input:focus {
   border:1px solid #b993d6;
   box-shadow: 0 0 3px #719ECE;
 }
-
 </style>
 
 <script>
+import VueButton from '@/components/vue-r-button';
+
 export default {
   name: 'configurator-shield',
+  components: {
+    'vue-button': VueButton,
+  },
   data() {
     return {
       shieldName: '',
