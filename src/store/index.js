@@ -10,6 +10,7 @@ const store = new Vuex.Store({
     projectTitle: '',
     username: '',
     shields: [],
+    showcaseImages: [],
     projectDescription: '',
     dependencies: [],
     projectInstallation: '',
@@ -65,6 +66,12 @@ const store = new Vuex.Store({
     },
     UPDATE_SHOW_VUE_README: function showVueReadme(state, payload) {
       state.showVueReadme = payload;
+    },
+    ADD_SHOWCASE_IMAGE: function addShowcaseImage(state, payload) {
+      state.showcaseImages.push(payload);
+    },
+    DELETE_SHOWCASE_IMAGE: function deleteShowcaseImage(state, payload) {
+      state.showcaseImages.push(payload);
     },
   },
   getters: {},

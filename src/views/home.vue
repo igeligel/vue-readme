@@ -42,8 +42,8 @@
               </configurator-input>
             </div>
           </div>
-          <configurator-shield>
-          </configurator-shield>
+          <configurator-shield></configurator-shield>
+          <configurator-showcase></configurator-showcase>
           <configurator-textarea
             :title="'Description'"
             :placeholder="'Describe your project'"
@@ -101,6 +101,7 @@ import ConfiguratorTextarea from '@/components/configuratorTextarea';
 import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
 import ConfiguratorListAdd from '@/components/configuratorListAdd';
 import ConfiguratorShield from '@/components/configuratorShield';
+import ConfiguratorShowcase from '@/components/configuratorShowcase';
 import ReadmePreview from '@/components/readmePreview';
 import VueButton from '@/components/vue-r-button';
 
@@ -112,6 +113,7 @@ export default {
     'configurator-checkbox': ConfiguratorCheckbox,
     'configurator-list-add': ConfiguratorListAdd,
     'configurator-shield': ConfiguratorShield,
+    'configurator-showcase': ConfiguratorShowcase,
     'readme-preview': ReadmePreview,
     'vue-r-button': VueButton,
   },
