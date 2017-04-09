@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 v-text="title"></h2>
+    <h2 v-if="title !== undefined && title.length > 0" v-text="title"></h2>
     <div>
       <textarea :placeholder="placeholder" :rows="rows" v-model="projectDescription" @keydown="adjustHeight" @keyup="adjustHeight"></textarea>
     </div>

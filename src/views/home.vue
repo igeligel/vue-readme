@@ -67,6 +67,51 @@
             :storeProperty="'projectHowToUse'"
             :storeCommitEvent="'UPDATE_HOW_TO_USE'">
           </configurator-textarea>
+          <configurator-examples></configurator-examples>
+          <div>
+            <configurator-textarea
+              :title="'Contributing'"
+              :placeholder="'Describe how people can contribute'"
+              :rows="2"
+              :storeProperty="'contributing'"
+              :storeCommitEvent="'UPDATE_CONTRIBUTING'">
+            </configurator-textarea>
+          </div>
+          <div>
+            <h2>Resources</h2>
+            <h3>Motivation</h3>
+            <configurator-textarea
+              :placeholder="'Describe what you motivated to start the project'"
+              :rows="2"
+              :storeProperty="'motivation'"
+              :storeCommitEvent="'UPDATE_MOTIVATION'">
+            </configurator-textarea>
+            <h3>Architecture</h3>
+            <configurator-textarea
+              :placeholder="'Describe on how to use the project'"
+              :rows="2"
+              :storeProperty="'architecture'"
+              :storeCommitEvent="'UPDATE_ARCHITECTURE'">
+            </configurator-textarea>
+            <h3>Documentation</h3>
+            <div class="pure-g">
+              <div class="pure-u-5-6 grid__padding--right">
+                <configurator-input
+                  :placeholder="'Project Url'">
+                </configurator-input>
+              </div>
+              <div class="pure-u-1-6 grid__padding--left">
+                <vue-r-button
+                  :label="'Add'">
+                </vue-r-button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2>Contact Information</h2>
+            <!-- Contact first field static -->
+            <configurator-shield></configurator-shield>
+          </div>
           <div>
             <h2>License</h2>
             <select v-model="license">
@@ -76,7 +121,6 @@
             </select>
           </div>
           <div>
-            <h2>Settings</h2>
             <vue-r-button
               :label="'Load Contributors'"
               :onClick="loadContributors">
@@ -102,8 +146,11 @@ import ConfiguratorCheckbox from '@/components/configuratorCheckbox';
 import ConfiguratorListAdd from '@/components/configuratorListAdd';
 import ConfiguratorShield from '@/components/configuratorShield';
 import ConfiguratorShowcase from '@/components/configuratorShowcase';
+import ConfiguratorExamples from '@/components/configuratorExamples';
 import ReadmePreview from '@/components/readmePreview';
 import VueButton from '@/components/vue-r-button';
+
+//
 
 export default {
   name: 'home',
@@ -114,6 +161,7 @@ export default {
     'configurator-list-add': ConfiguratorListAdd,
     'configurator-shield': ConfiguratorShield,
     'configurator-showcase': ConfiguratorShowcase,
+    'configurator-examples': ConfiguratorExamples,
     'readme-preview': ReadmePreview,
     'vue-r-button': VueButton,
   },
@@ -232,6 +280,7 @@ h3 {
   margin-top: 40px;
   border-radius: 6px;
   box-shadow: 0 0 20px rgba(113, 158, 206, 0.1);
+  padding-bottom: 40px;
 }
 
 .settings-panel {

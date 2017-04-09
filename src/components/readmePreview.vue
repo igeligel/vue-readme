@@ -74,54 +74,54 @@
 
 
 .markdown-container table th {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .markdown-container table th,.markdown-container table td {
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
 }
 
 .markdown-container table tr {
-    background-color: #fcf8ff;
-    border-top: 1px solid #c6cbd1;
+  background-color: #fcf8ff;
+  border-top: 1px solid #c6cbd1;
 }
 
 .markdown-container table tr:nth-child(2n) {
-    background-color: #faf3ff;
+  background-color: #faf3ff;
 }
 
 .markdown-container table img {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .markdown-container img {
-    max-width: 100%;
-    box-sizing: content-box;
-    background-color: #fff;
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
 }
 
 .markdown-container img[align=right] {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .markdown-container img[align=left] {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 .markdown-container blockquote {
-    padding: 0 1em;
-    color: #6a737d;
-    border-left: 0.25em solid #dfe2e5;
-    margin: 0;
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  margin: 0;
 }
 
 .markdown-container blockquote>:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .markdown-container blockquote>:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 </style>
 
@@ -154,6 +154,18 @@ export default {
           : `${imageString} `;
       });
       return `${result}</div>`;
+    },
+    showcase: function getShowcase() {
+      if (this.$store.state.showcaseImages === undefined
+        || this.$store.state.showcaseImages.length === 0) {
+        return '';
+      }
+      let result = '</br><div style="text-align:center">';
+      this.$store.state.showcaseImages.forEach((showcaseUrl) => {
+        result += `<img src ="${showcaseUrl}" />`;
+      });
+      result += '</div>';
+      return result;
     },
     linkToVueReadme: function getLinkToVueReadme() {
       if (this.$store.state.showVueReadme === true) {
@@ -261,6 +273,8 @@ ${this.$store.state.projectHowToUse}`;
 
 ${this.shields}
 
+${this.showcase}
+
 ${this.description}
 
 ${this.dependencies}
@@ -271,9 +285,9 @@ ${this.howToUse}
 
 ${this.createLicenseText}
 
-${this.linkToVueReadme}
-
 ${this.createContributorHtml}
+
+${this.linkToVueReadme}
 `;
       return readme;
     },

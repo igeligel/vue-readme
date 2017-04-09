@@ -17,7 +17,7 @@
     </div>
     <div>
       <vue-r-button
-        :label="'+ Add Dependency'"
+        :label="'Add Dependency'"
         :onClick="addDependency">
       </vue-r-button>
     </div>
