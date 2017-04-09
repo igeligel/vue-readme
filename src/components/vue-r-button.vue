@@ -29,6 +29,7 @@ button {
   border: 0;
   text-transform: uppercase;
   background-color: #8477B7;
+  font-family: Montserrat;
 }
 
 button:hover {
