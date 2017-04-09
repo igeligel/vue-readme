@@ -15,6 +15,10 @@ const store = new Vuex.Store({
     dependencies: [],
     projectInstallation: '',
     projectHowToUse: '',
+    examples: [],
+    contributing: '',
+    motivation: '',
+    architecture: '',
     license: -1,
     contributors: [],
     showVueReadme: false,
@@ -72,6 +76,18 @@ const store = new Vuex.Store({
     },
     DELETE_SHOWCASE_IMAGE: function deleteShowcaseImage(state, payload) {
       state.showcaseImages.push(payload);
+    },
+    ADD_EXAMPLE: function addExample(state, payload) {
+      state.examples.push(payload);
+    },
+    UPDATE_CONTRIBUTING: function updateContributing(state, payload) {
+      state.contributing = payload;
+    },
+    UPDATE_MOTIVATION: function updateMotivation(state, payload) {
+      state.motivation = payload;
+    },
+    UPDATE_ARCHITECTURE: function updateArchitecture(state, payload) {
+      state.architecture = payload;
     },
   },
   getters: {},
