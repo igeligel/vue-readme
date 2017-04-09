@@ -19,6 +19,7 @@ const store = new Vuex.Store({
     contributing: '',
     motivation: '',
     architecture: '',
+    documentation: '',
     license: -1,
     contributors: [],
     showVueReadme: false,
@@ -88,6 +89,9 @@ const store = new Vuex.Store({
     },
     UPDATE_ARCHITECTURE: function updateArchitecture(state, payload) {
       state.architecture = payload;
+    },
+    UPDATE_DOCUMENTATION: function updateDocumentation(state, payload) {
+      state.documentation = payload;
     },
   },
   getters: {},

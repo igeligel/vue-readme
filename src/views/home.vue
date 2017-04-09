@@ -88,30 +88,14 @@
             </configurator-textarea>
             <h3>Architecture</h3>
             <configurator-textarea
-              :placeholder="'Describe on how to use the project'"
+              :placeholder="'Give a summary of the architecture of your project'"
               :rows="2"
               :storeProperty="'architecture'"
               :storeCommitEvent="'UPDATE_ARCHITECTURE'">
             </configurator-textarea>
-            <h3>Documentation</h3>
-            <div class="pure-g">
-              <div class="pure-u-5-6 grid__padding--right">
-                <configurator-input
-                  :placeholder="'Project Url'">
-                </configurator-input>
-              </div>
-              <div class="pure-u-1-6 grid__padding--left">
-                <vue-r-button
-                  :label="'Add'">
-                </vue-r-button>
-              </div>
-            </div>
+            <configurator-documentation></configurator-documentation>
           </div>
-          <div>
-            <h2>Contact Information</h2>
-            <!-- Contact first field static -->
-            <configurator-shield></configurator-shield>
-          </div>
+          <configurator-contact></configurator-contact>
           <div>
             <h2>License</h2>
             <select v-model="license">
@@ -147,10 +131,10 @@ import ConfiguratorListAdd from '@/components/configuratorListAdd';
 import ConfiguratorShield from '@/components/configuratorShield';
 import ConfiguratorShowcase from '@/components/configuratorShowcase';
 import ConfiguratorExamples from '@/components/configuratorExamples';
+import ConfiguratorDocumentation from '@/components/configuratorDocumentation';
+import ConfiguratorContact from '@/components/configuratorContact';
 import ReadmePreview from '@/components/readmePreview';
 import VueButton from '@/components/vue-r-button';
-
-//
 
 export default {
   name: 'home',
@@ -162,6 +146,8 @@ export default {
     'configurator-shield': ConfiguratorShield,
     'configurator-showcase': ConfiguratorShowcase,
     'configurator-examples': ConfiguratorExamples,
+    'configurator-documentation': ConfiguratorDocumentation,
+    'configurator-contact': ConfiguratorContact,
     'readme-preview': ReadmePreview,
     'vue-r-button': VueButton,
   },
