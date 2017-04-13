@@ -23,6 +23,7 @@ const store = new Vuex.Store({
     license: -1,
     contributors: [],
     showVueReadme: false,
+    finalMarkdown: '',
   },
   actions: {},
   mutations: {
@@ -92,6 +93,9 @@ const store = new Vuex.Store({
     },
     UPDATE_DOCUMENTATION: function updateDocumentation(state, payload) {
       state.documentation = payload;
+    },
+    UPDATE_FINAL_MARKDOWN: function updateFinalMarkdown(state, payload) {
+      state.finalMarkdown = payload;
     },
   },
   getters: {},

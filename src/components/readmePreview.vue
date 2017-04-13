@@ -289,6 +289,7 @@ ${this.createContributorHtml}
 
 ${this.linkToVueReadme}
 `;
+      this.$store.commit('UPDATE_FINAL_MARKDOWN', readme);
       return readme;
     },
     finalHtml: function finalHtml() {

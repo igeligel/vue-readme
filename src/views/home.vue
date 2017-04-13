@@ -1,9 +1,21 @@
 <template>
   <div class="pure-g">
+    <modal v-if="showModal" @close="showModal=false">
+      <h3 slot="header">Readme Markdown</h3>
+      <div slot="body">
+        <textarea style="height: 80vh; width: 100%;">{{this.$store.state.finalMarkdown}}</textarea>
+      </div>
+      <div slot="footer">
+        <button>
+          Download
+        </button>
+      </div>
+    </modal>
     <div class="pure-u-1 pure-u-md-1-5 panel menu-panel" style="margin-top: 40px;">
       <div style="padding-left: 20px; padding-right: 20px;">
         <vue-r-button
-          :label="'Create README.md'">
+          :label="'Create README.md'"
+          :onClick="showModalFct">
         </vue-r-button>
       </div>
       <div>
@@ -135,6 +147,7 @@ import ConfiguratorDocumentation from '@/components/configuratorDocumentation';
 import ConfiguratorContact from '@/components/configuratorContact';
 import ReadmePreview from '@/components/readmePreview';
 import VueButton from '@/components/vue-r-button';
+import Modal from '@/components/modal';
 
 export default {
   name: 'home',
@@ -150,9 +163,11 @@ export default {
     'configurator-contact': ConfiguratorContact,
     'readme-preview': ReadmePreview,
     'vue-r-button': VueButton,
+    Modal,
   },
   data() {
     return {
+      showModal: false,
       dependencyName: '',
       dependencyVersion: '',
     };
@@ -168,6 +183,9 @@ export default {
     },
   },
   methods: {
+    showModalFct: function showModalFct() {
+      this.showModal = true;
+    },
     loadContributors: function loadContributors() {
       this.$store.commit('UPDATE_CONTRIBUTORS');
     },
