@@ -3,26 +3,27 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-
           <div class="modal-header">
-            <slot name="header">
-              default header
-            </slot>
+            <h3>Download Markdown</h3>
           </div>
-
           <div class="modal-body">
-            <slot name="body">
-              default body
-            </slot>
+            <textarea style="height: 80vh; width: 100%;" v-text="this.$store.state.finalMarkdown"></textarea>
           </div>
 
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-            </slot>
-            <button class="modal-default-button" @click="$emit('close')">
-                OK
-              </button>
+          <div class="modal-footer pure-g">
+            <div class="pure-u-1-12">
+              <vue-r-button
+                :label="'Download'"
+                :disabled="true">
+              </vue-r-button>
+            </div>
+            <div class="pure-u-5-6"></div>
+            <div class="pure-u-1-12">
+              <vue-r-button
+                :label="'Close'"
+                :onClick="closeModal">
+              </vue-r-button>
+            </div>
           </div>
         </div>
       </div>
@@ -60,12 +61,11 @@
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 .modal-header h3 {
   margin-top: 0;
-  color: #42b983;
+  color: #8ca6db;
 }
 
 .modal-body {
@@ -75,15 +75,6 @@
 .modal-default-button {
   float: right;
 }
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
 
 .modal-enter {
   opacity: 0;
@@ -101,7 +92,17 @@
 </style>
 
 <script>
-export default {
+import VueButton from '@/components/vue-r-button';
 
+export default {
+  name: 'readme-download-panel',
+  components: {
+    'vue-r-button': VueButton,
+  },
+  methods: {
+    closeModal: function closeModal() {
+      this.$emit('close');
+    },
+  },
 };
 </script>

@@ -1,17 +1,7 @@
 <template>
   <div class="pure-g">
-    <modal v-if="showModal" @close="showModal=false">
-      <h3 slot="header">Readme Markdown</h3>
-      <div slot="body">
-        <textarea style="height: 80vh; width: 100%;">{{this.$store.state.finalMarkdown}}</textarea>
-      </div>
-      <div slot="footer">
-        <button>
-          Download
-        </button>
-      </div>
-    </modal>
-    <div class="pure-u-1 pure-u-md-1-5 panel menu-panel" style="margin-top: 40px;">
+    <download-modal v-if="showModal" @close="showModal=false"></download-modal>
+    <div class="pure-u-1 pure-u-md-1-6 panel menu-panel" style="margin-top: 40px;">
       <div style="padding-left: 20px; padding-right: 20px;">
         <vue-r-button
           :label="'Create README.md'"
@@ -19,6 +9,7 @@
         </vue-r-button>
       </div>
       <div>
+        <!--
         <div class="menu-item"><span class="menu-item-icon">X</span>Editor</div>
         <div class="menu-item menu-item--active">
           <span class="menu-item-icon">X</span>Repositories<span class="menu-item-icon--right">▼</span>
@@ -27,14 +18,14 @@
             <div><span class="submenu-item-icon">►</span>vuejs/vue</div>
           </div>
         </div>
-        <div class="menu-item"><span class="menu-item-icon">X</span>Import</div>
+        <div class="menu-item"><span class="menu-item-icon">X</span>Import</div>-->
       </div>
     </div>
-    <div class="pure-u-1 pure-u-md-3-5 panel readme-panel">
+    <div class="pure-u-1 pure-u-md-1-2 panel readme-panel">
       <readme-preview>
       </readme-preview>
     </div>
-    <div class="pure-u-1 pure-u-md-1-5 panel settings-panel" style="margin-top: 40px;">
+    <div class="pure-u-1 pure-u-md-1-3 panel settings-panel" style="margin-top: 40px;">
       <div style="padding-left: 15px; padding-right: 15px;">
         <div class="configuration-panel">
           <h2>General Information</h2>
@@ -108,7 +99,7 @@
             <configurator-documentation></configurator-documentation>
           </div>
           <configurator-contact></configurator-contact>
-          <div>
+          <div style="margin-bottom: 8px;">
             <h2>License</h2>
             <select v-model="license">
               <option value="0">MIT</option>
@@ -147,7 +138,7 @@ import ConfiguratorDocumentation from '@/components/configuratorDocumentation';
 import ConfiguratorContact from '@/components/configuratorContact';
 import ReadmePreview from '@/components/readmePreview';
 import VueButton from '@/components/vue-r-button';
-import Modal from '@/components/modal';
+import DownloadModal from '@/components/downloadModal';
 
 export default {
   name: 'home',
@@ -163,7 +154,7 @@ export default {
     'configurator-contact': ConfiguratorContact,
     'readme-preview': ReadmePreview,
     'vue-r-button': VueButton,
-    Modal,
+    DownloadModal,
   },
   data() {
     return {
@@ -273,6 +264,9 @@ h3 {
   padding-bottom: 10px;
   border-radius: 6px;
   box-shadow: 0 0 20px rgba(113, 158, 206, 0.2);
+  max-height: calc(100vh - 140px);
+  overflow-y: scroll;
+  box-sizing: border-box;
 }
 
 .menu-panel {
@@ -284,10 +278,10 @@ h3 {
   margin-top: 40px;
   border-radius: 6px;
   box-shadow: 0 0 20px rgba(113, 158, 206, 0.1);
-  padding-bottom: 40px;
+  max-height: calc(100vh - 140px);
+  box-sizing: border-box
 }
 
 .settings-panel {
-  margin-bottom: 40px;
 }
 </style>

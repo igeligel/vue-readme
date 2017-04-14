@@ -264,8 +264,6 @@ ${this.$store.state.projectHowToUse}`;
         }
       }
       returnString += '</tbody></table>';
-      // eslint-disable-next-line
-      console.log(returnString);
       return returnString;
     },
     finalMarkdown: function finalMarkdown() {
