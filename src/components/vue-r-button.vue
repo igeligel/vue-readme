@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="defaultOnClick" v-text="label"></button>
+  <button :class="buttonClass" v-on:click="defaultOnClick" v-text="label"></button>
 </template>
 
 <script>
@@ -8,10 +8,19 @@ export default {
   props: {
     label: String,
     onClick: Function,
+    disabled: Boolean,
+  },
+  computed: {
+    buttonClass: function getButtonClass() {
+      if (this.disabled) {
+        return 'disabled';
+      }
+      return '';
+    },
   },
   methods: {
     defaultOnClick: function defaultOnClick(event) {
-      if (this.onClick === undefined) {
+      if (this.onClick === undefined || this.disabled) {
         return;
       }
       this.onClick(event);
@@ -32,8 +41,17 @@ button {
   font-family: Montserrat;
 }
 
+.disabled {
+  background-color: #dddaea;
+}
+
 button:hover {
   background-color: #8b7fbb;
+}
+
+.disabled:hover {
+  background-color: #dddaea;
+  cursor: default;
 }
 
 button:focus {
