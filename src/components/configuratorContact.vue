@@ -39,6 +39,7 @@ export default {
   },
   data() {
     return {
+      selectedShield: 0,
       shieldOptions: [
         { text: 'Flat', value: 0 },
         { text: 'Plastic', value: 1 },
