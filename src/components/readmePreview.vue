@@ -160,7 +160,7 @@ export default {
         || this.$store.state.showcaseImages.length === 0) {
         return '';
       }
-      let result = '</br><div style="text-align:center">';
+      let result = '<div style="text-align:center">';
       this.$store.state.showcaseImages.forEach((showcaseUrl) => {
         result += `<img src ="${showcaseUrl}" />`;
       });
@@ -204,6 +204,48 @@ ${this.$store.state.projectInstallation}`;
         return `## How To Use
 
 ${this.$store.state.projectHowToUse}`;
+      }
+      return '';
+    },
+    examples: function getExamples() {
+      if (this.$store.state.examples.length > 0) {
+        let result = '## Examples\n';
+        this.$store.state.examples.forEach((example) => {
+          result += `- [${example.name}](${example.url})\n`;
+        });
+        return result;
+      }
+      return '';
+    },
+    contributing: function getContributing() {
+      if (this.$store.state.contributing.length > 0) {
+        return `## Contributing\n\n${this.$store.state.contributing}`;
+      }
+      return '';
+    },
+    resourcesHeading: function getResourcesHeading() {
+      const state = this.$store.state;
+      const { motivation, architecture, documentation } = state;
+      if (motivation.length > 0 || architecture.length > 0 || documentation.length > 0) {
+        return '## Resources';
+      }
+      return '';
+    },
+    motivation: function getMotivation() {
+      if (this.$store.state.motivation.length > 0) {
+        return `### Motivation\n\n${this.$store.state.motivation}`;
+      }
+      return '';
+    },
+    architecture: function getArchitecture() {
+      if (this.$store.state.architecture.length > 0) {
+        return `### Architecture\n\n${this.$store.state.architecture}`;
+      }
+      return '';
+    },
+    documentation: function getDocumentation() {
+      if (this.$store.state.documentation.length > 0) {
+        return `### Documentation\n\n> You can find documentation [here](${this.$store.state.documentation}).`;
       }
       return '';
     },
@@ -280,6 +322,18 @@ ${this.dependencies}
 ${this.installation}
 
 ${this.howToUse}
+
+${this.examples}
+
+${this.contributing}
+
+${this.resourcesHeading}
+
+${this.motivation}
+
+${this.architecture}
+
+${this.documentation}
 
 ${this.createLicenseText}
 

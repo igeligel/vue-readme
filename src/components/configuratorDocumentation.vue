@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     addDocumentationUrl: function addDocumentationUrl() {
-      this.$store.commit('', this.$refs.documentationUrlInput.storeValue);
+      this.$store.commit('UPDATE_DOCUMENTATION', this.$refs.documentationUrlInput.storeValue);
     },
   },
 };
