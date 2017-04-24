@@ -1,19 +1,20 @@
 <template>
-  <div class="input__checkbox__container">
-    <input type="checkbox" value="None" id="squaredThree" name="check" v-model="checked" />
-    <label for="squaredThree"></label>
-    <div style="display: inline-block;">
-      <span style="font-weight: 300; padding-left: 14px; line-height: 26px;" v-text="text"></span>
+  <div class="configurator-checkbox">
+    <input class="configurator-checkbox__input" type="checkbox" value="None" id="squaredThree" name="check" v-model="checked" />
+    <label class="configurator-checkbox__label" for="squaredThree"></label>
+    <div class="configurator-checkbox__text-container">
+      <span class="configurator-checkbox__text" v-text="text"></span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.input__checkbox__container {
+.configurator-checkbox {
   position: relative;
   height: 25px;
 }
-.input__checkbox__container label {
+
+.configurator-checkbox__label {
   width: 25px;
   height: 25px;
   cursor: pointer;
@@ -25,7 +26,8 @@
   border: 1px solid #e0e9fc;
   box-sizing: border-box;
 }
-.input__checkbox__container label:after {
+
+.configurator-checkbox__label:after {
   content: '';
   width: 14px;
   height: 7px;
@@ -38,13 +40,24 @@
   background: transparent;
   opacity: 0;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
 }
-.input__checkbox__container input[type=checkbox] {
+
+.configurator-checkbox__input {
   visibility: hidden;
 }
-.input__checkbox__container input[type=checkbox]:checked + label:after {
+
+.configurator-checkbox__input:checked + label:after {
   opacity: 1;
+}
+
+.configurator-checkbox__text-container {
+  display: inline-block;
+}
+
+.configurator-checkbox__text {
+  font-weight: 300;
+  padding-left: 14px;
+  line-height: 26px;
 }
 </style>
 
@@ -67,5 +80,4 @@ export default {
     },
   },
 };
-
 </script>
