@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Badges</h2>
+    <h2>Contact</h2>
     <div class="pure-g">
       <div class="pure-u-1-2 grid__padding--right">
         <input class="configurator__input" spellcheck="false" placeholder="Platform">
