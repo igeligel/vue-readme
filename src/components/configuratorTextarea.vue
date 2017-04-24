@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <h2 v-if="title !== undefined && title.length > 0" v-text="title"></h2>
-    <div>
-      <textarea :placeholder="placeholder" :rows="rows" v-model="projectDescription" @keydown="adjustHeight" @keyup="adjustHeight"></textarea>
-    </div>
+  <div class="configurator-textarea">
+    <h2 class="configurator-textarea__heading" v-if="title !== undefined && title.length > 0" v-text="title"></h2>
+    <textarea class="configurator-textarea__textarea" :placeholder="placeholder" :rows="rows" v-model="projectDescription" @keydown="adjustHeight" @keyup="adjustHeight"></textarea>
   </div>
 </template>
 
 <style scoped>
-h2 {
+.configurator-textarea__heading {
   margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 300;
 }
 
-textarea {
+.configurator-textarea__textarea {
   overflow-y: hidden;
   box-sizing: border-box;
   width: 100%;
@@ -29,11 +27,11 @@ textarea {
   line-height: 1.5em;
 }
 
-textarea::-webkit-input-placeholder {
+.configurator-textarea__textarea::-webkit-input-placeholder {
   color: #8ca6db;
 }
 
-textarea:focus {
+.configurator-textarea__textarea:focus {
   outline: none !important;
   border:1px solid #b993d6;
   box-shadow: 0 0 3px #719ECE;
