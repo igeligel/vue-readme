@@ -1,30 +1,6 @@
 <template>
   <div class="pure-g">
     <download-modal v-if="showModal" @close="showModal=false"></download-modal>
-    <div class="pure-u-1 pure-u-md-1-6 panel menu-panel" style="margin-top: 40px;">
-      <div style="padding-left: 20px; padding-right: 20px;">
-        <vue-r-button
-          :label="'Create README.md'"
-          :onClick="showModalFct">
-        </vue-r-button>
-      </div>
-      <div>
-        <!--
-        <div class="menu-item"><span class="menu-item-icon">X</span>Editor</div>
-        <div class="menu-item menu-item--active">
-          <span class="menu-item-icon">X</span>Repositories<span class="menu-item-icon--right">▼</span>
-          <div class="menu-item-sublist">
-            <div><span class="submenu-item-icon">►</span>igeligel/vue-readme</div>
-            <div><span class="submenu-item-icon">►</span>vuejs/vue</div>
-          </div>
-        </div>
-        <div class="menu-item"><span class="menu-item-icon">X</span>Import</div>-->
-      </div>
-    </div>
-    <div class="pure-u-1 pure-u-md-1-2 panel readme-panel">
-      <readme-preview>
-      </readme-preview>
-    </div>
     <div class="pure-u-1 pure-u-md-1-3 panel settings-panel" style="margin-top: 40px;">
       <div style="padding-left: 15px; padding-right: 15px;">
         <div class="configuration-panel">
@@ -121,6 +97,31 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2 panel readme-panel">
+      <readme-preview>
+      </readme-preview>
+    </div>
+
+    <div class="pure-u-1 pure-u-md-1-6 panel menu-panel" style="margin-top: 40px;">
+      <div style="padding-left: 20px; padding-right: 20px;">
+        <vue-r-button
+          :label="'Create README.md'"
+          :onClick="showModalFct">
+        </vue-r-button>
+      </div>
+      <div>
+        <!--
+        <div class="menu-item"><span class="menu-item-icon">X</span>Editor</div>
+        <div class="menu-item menu-item--active">
+          <span class="menu-item-icon">X</span>Repositories<span class="menu-item-icon--right">▼</span>
+          <div class="menu-item-sublist">
+            <div><span class="submenu-item-icon">►</span>igeligel/vue-readme</div>
+            <div><span class="submenu-item-icon">►</span>vuejs/vue</div>
+          </div>
+        </div>
+        <div class="menu-item"><span class="menu-item-icon">X</span>Import</div>-->
       </div>
     </div>
   </div>
