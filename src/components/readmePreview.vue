@@ -140,7 +140,15 @@ export default {
       }
       let result = '<div style="text-align:center">';
       this.$store.state.shields.forEach((shield) => {
-        const color = shield.color.replace('#', '');
+        let userColor = shield.color;
+        if (!userColor.includes('#')) {
+          userColor = `#${userColor}`;
+        }
+        const isColorCode = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(userColor);
+        let color = '8477B7';
+        if (isColorCode) {
+          color = userColor.replace('#', '');
+        }
         const styleDict = {
           0: '?style=flat',
           1: '?style=plastic',
