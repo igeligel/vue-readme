@@ -13,9 +13,9 @@ export default {
   computed: {
     buttonClass: function getButtonClass() {
       if (this.disabled) {
-        return 'disabled';
+        return 'button--disabled';
       }
-      return '';
+      return 'button';
     },
   },
   methods: {
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped>
-button {
+.button {
   color: #faf5ff;
   width: 100%;
   height: 2.5em;
@@ -41,20 +41,31 @@ button {
   font-family: Montserrat;
 }
 
-.disabled {
-  background-color: #dddaea;
-}
-
-button:hover {
+.button:hover {
   background-color: #8b7fbb;
 }
 
-.disabled:hover {
+.button:focus {
+  outline: 0;
+}
+
+.button--disabled {
+  background-color: #dddaea;
+  color: #faf5ff;
+  width: 100%;
+  height: 2.5em;
+  border-radius: 7px;
+  border: 0;
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
+
+.button--disabled:hover {
   background-color: #dddaea;
   cursor: default;
 }
 
-button:focus {
+.button--disabled:focus {
   outline: 0;
 }
 </style>
