@@ -49,7 +49,7 @@ const store = new Vuex.Store({
       state.dependencies.push(payload.dependency);
     },
     DELETE_DEPENDENCY: function deleteDependency(state, payload) {
-      state.dependencies.splice(payload.index, 1);
+      state.dependencies.splice(payload.dependencyIndex, 1);
     },
     UPDATE_INSTALLATION: function updateInstallation(state, payload) {
       state.projectInstallation = payload;

@@ -2,14 +2,16 @@
   <div class="container">
     <h2>Dependencies</h2>
     <div class="dependency-shields-container">
-      <template v-for="dependency in dependencies">
-        <div class="pure-g dependency-list-container">
-          <div class="pure-u-1-8 delete-button">X</div>
-          <div class="pure-u-7-12 dependency-list-container__name" v-text="dependency.name"></div>
-          <div class="pure-u-7-24 dependency-list-container__version" v-text="dependency.version"></div>
-        </div>
-      </template>
-      <div v-if="dependencies.length !== 0" class="divider"></div>
+      <div
+        class="pure-g dependency-list-container"
+        v-for="(dependency, index) in dependencies"
+        :key="index"
+      >
+        <div class="pure-u-1-8 delete-button" @click="deleteDependency(index)">X</div>
+        <div class="pure-u-7-12 dependency-list-container__name" v-text="dependency.name"></div>
+        <div class="pure-u-7-24 dependency-list-container__version" v-text="dependency.version"></div>
+        <div v-if="dependencies.length !== 0" class="divider"></div>
+      </div>
     </div>
     <div class="dependency-container">
       <input class="dependency-name" spellcheck="false" placeholder="Name" v-model="dependencyName" ref="dependencyNameInput" />
@@ -118,7 +120,7 @@ h2 {
 import VueButton from '@/components/vue-r-button';
 
 export default {
-  name: 'home',
+  name: 'ConfiguratorListAdd',
   components: {
     'vue-r-button': VueButton,
   },
@@ -146,6 +148,12 @@ export default {
       this.dependencyName = '';
       this.dependencyVersion = '';
       this.$refs.dependencyNameInput.focus();
+    },
+    deleteDependency: function deleteDependency(dependencyIndex) {
+      this.$store.commit({
+        type: 'DELETE_DEPENDENCY',
+        dependencyIndex,
+      });
     },
   },
 };
