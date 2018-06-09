@@ -33,8 +33,8 @@ input::-webkit-input-placeholder {
 
 input:focus {
   outline: none !important;
-  border:1px solid #b993d6;
-  box-shadow: 0 0 3px #719ECE;
+  border: 1px solid #b993d6;
+  box-shadow: 0 0 3px #719ece;
 }
 </style>
 
@@ -70,5 +70,4 @@ export default {
     },
   },
 };
-
 </script>

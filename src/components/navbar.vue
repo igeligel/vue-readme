@@ -32,10 +32,22 @@
 .custom-wrapper {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8ca6db+0,b993d6+100 */
   /* #8ca6db, #b993d6 */
-  background: rgb(140,166,219); /* Old browsers */
-  background: -moz-linear-gradient(left,  rgba(140,166,219,1) 0%, rgba(185,147,214,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  rgba(140,166,219,1) 0%,rgba(185,147,214,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  rgba(140,166,219,1) 0%,rgba(185,147,214,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: rgb(140, 166, 219); /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    rgba(140, 166, 219, 1) 0%,
+    rgba(185, 147, 214, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(140, 166, 219, 1) 0%,
+    rgba(185, 147, 214, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(140, 166, 219, 1) 0%,
+    rgba(185, 147, 214, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ca6db', endColorstr='#b993d6',GradientType=1 ); /* IE6-9 */
   -webkit-font-smoothing: antialiased;
   height: 80px;
@@ -47,7 +59,9 @@
   box-shadow: 0px 8px 8px rgba(164, 182, 216, 0.5);
 }
 
-.pure-menu-active>.pure-menu-link, .pure-menu-link:focus, .pure-menu-link:hover {
+.pure-menu-active > .pure-menu-link,
+.pure-menu-link:focus,
+.pure-menu-link:hover {
   background-color: #c2a6e2;
 }
 
@@ -122,16 +136,19 @@ export default {
   mounted() {
     /* eslint-disable */
     var menu = document.getElementById('menu');
-    var WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange' : 'resize';
+    var WINDOW_CHANGE_EVENT =
+      'onorientationchange' in window ? 'orientationchange' : 'resize';
 
     function toggleHorizontal() {
       [].forEach.call(
-        document.getElementById('menu').querySelectorAll('.custom-can-transform'),
+        document
+          .getElementById('menu')
+          .querySelectorAll('.custom-can-transform'),
         function(el) {
           el.classList.toggle('pure-menu-horizontal');
-        }
+        },
       );
-    };
+    }
 
     function toggleMenu() {
       menu.classList.contains('open')
@@ -139,7 +156,7 @@ export default {
         : toggleHorizontal();
       menu.classList.toggle('open');
       document.getElementById('toggle').classList.toggle('x');
-    };
+    }
 
     function closeMenu() {
       if (menu.classList.contains('open')) {
@@ -157,5 +174,4 @@ export default {
     /* eslint-enable */
   },
 };
-
 </script>

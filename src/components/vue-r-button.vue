@@ -37,7 +37,7 @@ export default {
   border-radius: 7px;
   border: 0;
   text-transform: uppercase;
-  background-color: #8477B7;
+  background-color: #8477b7;
   font-family: Montserrat;
 }
 

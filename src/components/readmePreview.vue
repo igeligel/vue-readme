@@ -7,7 +7,8 @@
 
 <style>
 .markdown-container {
-  max-width: 980px; margin: auto;
+  max-width: 980px;
+  margin: auto;
   color: #24292e;
 }
 
@@ -72,12 +73,12 @@
   overflow: auto;
 }
 
-
 .markdown-container table th {
   font-weight: 600;
 }
 
-.markdown-container table th,.markdown-container table td {
+.markdown-container table th,
+.markdown-container table td {
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
 }
@@ -101,11 +102,11 @@
   background-color: #fff;
 }
 
-.markdown-container img[align=right] {
+.markdown-container img[align='right'] {
   padding-left: 20px;
 }
 
-.markdown-container img[align=left] {
+.markdown-container img[align='left'] {
   padding-right: 20px;
 }
 
@@ -116,11 +117,11 @@
   margin: 0;
 }
 
-.markdown-container blockquote>:first-child {
+.markdown-container blockquote > :first-child {
   margin-top: 0;
 }
 
-.markdown-container blockquote>:last-child {
+.markdown-container blockquote > :last-child {
   margin-bottom: 0;
 }
 </style>
@@ -132,7 +133,11 @@ export default {
   name: 'readme-preview',
   computed: {
     title: function getTitle() {
-      return `${this.$store.state.projectTitle} by <a href="https://github.com/${this.$store.state.username}">${this.$store.state.username}</a>`;
+      return `${
+        this.$store.state.projectTitle
+      } by <a href="https://github.com/${this.$store.state.username}">${
+        this.$store.state.username
+      }</a>`;
     },
     shields: function getShields() {
       if (this.$store.state.shields.length === 0) {
@@ -144,7 +149,9 @@ export default {
         if (!userColor.includes('#')) {
           userColor = `#${userColor}`;
         }
-        const isColorCode = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(userColor);
+        const isColorCode = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(
+          userColor,
+        );
         let color = '8477B7';
         if (isColorCode) {
           color = userColor.replace('#', '');
@@ -155,17 +162,22 @@ export default {
           2: '?style=flat-square',
           3: '?style=social',
         };
-        const url = `https://img.shields.io/badge/${shield.name}-${shield.value}-${color}.svg${styleDict[shield.style]}`;
+        const url = `https://img.shields.io/badge/${shield.name}-${
+          shield.value
+        }-${color}.svg${styleDict[shield.style]}`;
         const imageString = `<img src="${url}" alt="badge ${shield.name}" />`;
-        result += shield.url !== ''
-          ? `<a href="${shield.url}">${imageString}</a> `
-          : `${imageString} `;
+        result +=
+          shield.url !== ''
+            ? `<a href="${shield.url}">${imageString}</a> `
+            : `${imageString} `;
       });
       return `${result}</div>`;
     },
     showcase: function getShowcase() {
-      if (this.$store.state.showcaseImages === undefined
-        || this.$store.state.showcaseImages.length === 0) {
+      if (
+        this.$store.state.showcaseImages === undefined ||
+        this.$store.state.showcaseImages.length === 0
+      ) {
         return '';
       }
       let result = '<div style="text-align:center">';
@@ -193,7 +205,8 @@ export default {
       if (this.$store.state.dependencies.length === 0) {
         return '';
       }
-      let baseString = '## Dependencies\n\n| Dependency | Version |\n| -- | -- |\n';
+      let baseString =
+        '## Dependencies\n\n| Dependency | Version |\n| -- | -- |\n';
       this.$store.state.dependencies.forEach((element) => {
         baseString += `| ${element.name} | ${element.version} |\n`;
       });
@@ -234,7 +247,11 @@ ${this.$store.state.projectHowToUse}`;
     resourcesHeading: function getResourcesHeading() {
       const state = this.$store.state;
       const { motivation, architecture, documentation } = state;
-      if (motivation.length > 0 || architecture.length > 0 || documentation.length > 0) {
+      if (
+        motivation.length > 0 ||
+        architecture.length > 0 ||
+        documentation.length > 0
+      ) {
         return '## Resources';
       }
       return '';
@@ -253,12 +270,17 @@ ${this.$store.state.projectHowToUse}`;
     },
     documentation: function getDocumentation() {
       if (this.$store.state.documentation.length > 0) {
-        return `### Documentation\n\n> You can find documentation [here](${this.$store.state.documentation}).`;
+        return `### Documentation\n\n> You can find documentation [here](${
+          this.$store.state.documentation
+        }).`;
       }
       return '';
     },
     createLicenseText: function createLicenseText() {
-      if (this.$store.state.projectTitle === undefined || this.$store.state.projectTitle === '') {
+      if (
+        this.$store.state.projectTitle === undefined ||
+        this.$store.state.projectTitle === ''
+      ) {
         return '';
       }
       if (this.$store.state.license === -1) {
@@ -272,11 +294,15 @@ ${this.$store.state.projectHowToUse}`;
       return `
 ## License
 
-*${this.$store.state.projectTitle}* is realeased under the ${licenseDict[this.$store.state.license]} License.`;
+*${this.$store.state.projectTitle}* is realeased under the ${
+        licenseDict[this.$store.state.license]
+      } License.`;
     },
     createContributorHtml: function createContributorHtml() {
-      if (this.$store.state.contributors.length === -1
-      || this.$store.state.loadContributors === false) {
+      if (
+        this.$store.state.contributors.length === -1 ||
+        this.$store.state.loadContributors === false
+      ) {
         return '';
       }
       if (this.$store.state.contributors.length === 0) {
@@ -285,7 +311,13 @@ ${this.$store.state.projectHowToUse}`;
       const contributors = this.$store.state.contributors;
       const contributorsHtml = [];
       contributors.forEach((contributor) => {
-        contributorsHtml.push(`<a href="${contributor.html_url}"><img src="${contributor.avatar_url}" width="100px;" style="max-width:100%;"><br><sub>${contributor.login}</sub></a><br><p>Contributions: ${contributor.contributions}</p>`);
+        contributorsHtml.push(
+          `<a href="${contributor.html_url}"><img src="${
+            contributor.avatar_url
+          }" width="100px;" style="max-width:100%;"><br><sub>${
+            contributor.login
+          }</sub></a><br><p>Contributions: ${contributor.contributions}</p>`,
+        );
       });
       let row = 0;
       let returnString = '<h2>Contributors</h2>\n\n<table>';
@@ -357,5 +389,4 @@ ${this.linkToVueReadme}
     },
   },
 };
-
 </script>

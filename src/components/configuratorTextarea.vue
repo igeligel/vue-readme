@@ -33,8 +33,8 @@
 
 .configurator-textarea__textarea:focus {
   outline: none !important;
-  border:1px solid #b993d6;
-  box-shadow: 0 0 3px #719ECE;
+  border: 1px solid #b993d6;
+  box-shadow: 0 0 3px #719ece;
 }
 </style>
 
@@ -62,10 +62,12 @@ export default {
     adjustHeight: function adjustHeight(event) {
       const textarea = event.srcElement;
       textarea.style.height = '1px';
-      const lineHeight = parseInt(window.getComputedStyle(textarea)['line-height'], 10);
+      const lineHeight = parseInt(
+        window.getComputedStyle(textarea)['line-height'],
+        10,
+      );
       textarea.style.height = `${lineHeight + textarea.scrollHeight}px`;
     },
   },
 };
-
 </script>

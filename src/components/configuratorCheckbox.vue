@@ -34,7 +34,7 @@
   position: absolute;
   top: 5px;
   left: 3px;
-  border: 3px solid #8477B7;
+  border: 3px solid #8477b7;
   border-top: none;
   border-right: none;
   background: transparent;

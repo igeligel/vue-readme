@@ -33,8 +33,8 @@ input::-webkit-input-placeholder {
 
 input:focus {
   outline: none !important;
-  border:1px solid #b993d6;
-  box-shadow: 0 0 3px #719ECE;
+  border: 1px solid #b993d6;
+  box-shadow: 0 0 3px #719ece;
 }
 
 .divider {
@@ -88,7 +88,7 @@ input:focus {
   padding-right: 10px;
   padding-top: 10px;
   margin-bottom: 5px;
-  box-sizing:border-box;
+  box-sizing: border-box;
   width: calc(60% - 5px);
   float: left;
   margin-right: 5px;
@@ -104,7 +104,7 @@ input:focus {
   padding-right: 10px;
   padding-top: 10px;
   margin-bottom: 5px;
-  box-sizing:border-box;
+  box-sizing: border-box;
   margin-left: 5px;
   width: calc(40% - 5px);
 }

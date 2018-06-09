@@ -57,13 +57,14 @@ export default {
     'vue-r-button': VueButton,
   },
   computed: {
-    urls: function getUrls() {
-
-    },
+    urls: function getUrls() {},
   },
   methods: {
     addShowcaseImage: function addShowcaseImage() {
-      this.$store.commit('ADD_SHOWCASE_IMAGE', this.$refs.inputField.storeValue);
+      this.$store.commit(
+        'ADD_SHOWCASE_IMAGE',
+        this.$refs.inputField.storeValue,
+      );
       this.$refs.inputField.storeValue = '';
     },
   },

@@ -184,7 +184,10 @@ export default {
     adjustHeight: function test(event) {
       const textarea = event.srcElement;
       textarea.style.height = '1px';
-      const lineHeight = parseInt(window.getComputedStyle(textarea)['line-height'], 10);
+      const lineHeight = parseInt(
+        window.getComputedStyle(textarea)['line-height'],
+        10,
+      );
       textarea.style.height = `${lineHeight + textarea.scrollHeight}px`;
     },
   },
@@ -198,7 +201,7 @@ export default {
 }
 
 .menu-item-icon--right {
-  float:right;
+  float: right;
   margin-right: 25px;
   cursor: pointer;
 }
@@ -280,7 +283,7 @@ h3 {
   border-radius: 6px;
   box-shadow: 0 0 20px rgba(113, 158, 206, 0.1);
   max-height: calc(100vh - 140px);
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .settings-panel {
