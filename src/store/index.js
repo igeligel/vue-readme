@@ -62,12 +62,18 @@ const store = new Vuex.Store({
     },
     UPDATE_CONTRIBUTORS: function updateContributors(state) {
       if (state.username !== '' && state.projectTitle !== '') {
-        jsonp(`https://api.github.com/repos/${state.username}/${state.projectTitle}/contributors`, null, (err, data) => {
-          if (err) {
-            return;
-          }
-          state.contributors = data.data;
-        });
+        jsonp(
+          `https://api.github.com/repos/${state.username}/${
+            state.projectTitle
+          }/contributors`,
+          null,
+          (err, data) => {
+            if (err) {
+              return;
+            }
+            state.contributors = data.data;
+          },
+        );
       }
     },
     UPDATE_SHOW_VUE_README: function showVueReadme(state, payload) {
